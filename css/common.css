@@ -279,3 +279,339 @@
 .layout_rate .col_5 {
     flex:0.5;
 }
+
+/* [Common] - Radio */
+.radio_default {
+    display:inline-block;
+    position:relative;
+}
+.radio_default .input_radio {
+    display:none;
+}
+.radio_default label {
+    padding:2px 0 2px 25px;
+    font-size:14px;
+    line-height:1.27em;
+}
+.radio_default label .icon {
+    position:absolute;
+    left:0;
+    top:2px;
+    width:16px;
+    height:16px;
+    border:2px solid #ccc;
+    border-radius:50%;
+    background:#fff;
+    transition:all 0.4s;
+}
+.radio_default label .icon:after {
+    content:"";
+    position:absolute;
+    left:3px;
+    top:3px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    transform:scale(0);
+    transition:all 0.4s;
+}
+.radio_default .input_radio:checked+label .icon:after {
+    transform:scale(1, 1);
+}
+/* [Common] - Radio > 색상별 */
+.radio_default_blue label .icon:after {
+    background:blue;
+}
+.radio_default_blue .input_radio:checked+label .icon {
+    border-color:blue;
+}
+.radio_default_red label .icon:after {
+    background:red;
+}
+.radio_default_red .input_radio:checked+label .icon {
+    border-color:red;
+}
+.radio_default_sky label .icon:after {
+    background:#10a6e2;
+}
+.radio_default_sky .input_radio:checked+label .icon {
+    border-color:#10a6e2;
+}
+.radio_default_green label .icon:after {
+    background:green;
+}
+.radio_default_green .input_radio:checked+label .icon {
+    border-color:green;
+}
+.radio_default_pink label .icon:after {
+    background:pink;
+}
+.radio_default_pink .input_radio:checked+label .icon {
+    border-color:pink;
+}
+.radio_default_orange label .icon:after {
+    background:orange;
+}
+.radio_default_orange .input_radio:checked+label .icon {
+    border-color:orange;
+}
+
+/* [Common] - Check Default */
+.check_default {
+    display:inline-block;
+    position:relative;
+}
+.check_default .input_check {
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.check_default label {
+    position:relative;
+    padding:2px 0 2px 25px;
+    font-size:14px;
+    line-height:1.27em;
+}
+.check_default label .icon {
+    position:absolute;
+    left:0;
+    top:2px;
+    width:16px;
+    height:16px;
+    border:2px solid #ccc;
+    border-radius:2px;
+    background:#fff;
+    transition:all 0.4s;
+}
+.check_default label .icon:before,
+.check_default label .icon:after {
+    content:"";
+    position:absolute;
+    background:#fff;
+    opacity:0;
+    transition:all 0.4s;
+}
+.check_default label .icon:before {
+    left:3px;
+    top:7px;
+    width:2px;
+    height:6px;
+    transform:rotate(-45deg);
+}
+.check_default label .icon:after {
+    left:8px;
+    top:2px;
+    width:2px;
+    height:12px;
+    transform:rotate(45deg);
+}
+.check_default .input_check:checked+label .icon:before,
+.check_default .input_check:checked+label .icon:after {
+    opacity:1;
+}
+/* [Common] - Check Default > 색상별 */
+.check_default_blue .input_check:checked+label .icon {
+    border-color:blue;
+    background:blue;
+}
+.check_default_red .input_check:checked+label .icon {
+    border-color:red;
+    background:red;
+}
+.check_default_sky .input_check:checked+label .icon {
+    border-color:#10a6e2;
+    background:#10a6e2;
+}
+.check_default_green .input_check:checked+label .icon {
+    border-color:green;
+    background:green;
+}
+.check_default_pink .input_check:checked+label .icon {
+    border-color:pink;
+    background:pink;
+}
+.check_default_orange .input_check:checked+label .icon {
+    border-color:orange;
+    background:orange;
+}
+
+/* [Common] - Check Switch */
+.check_switch {
+    display:inline-block;
+}
+.check_switch .input_check {
+    display:none;
+}
+.check_switch label {
+    display:inline-block;
+    position:relative;
+    width:65px;
+    height:25px;
+    border-radius:12px;
+    background:#e5e5e5;
+    cursor:pointer;
+    transition:background 0.3s;
+}
+.check_switch label:before {
+    content:"off";
+    position:absolute;
+    right:0;
+    top:1px;
+    width:45px;
+    color:#9a9a9a;
+    text-align:center;
+}
+.check_switch label .icon {
+    position:absolute;
+    left:1px;
+    top:1px;
+    width:23px;
+    height:23px;
+    border-radius:12px;
+    background:#fff;
+    transition:all 0.2s;
+}
+.check_switch .input_check:checked+label {
+    background:#007bff;
+}
+.check_switch .input_check:checked+label:before {
+    content:"on";
+    left:0;
+    right:auto;
+    color:#fff;
+}
+.check_switch .input_check:checked+label .icon {
+    left:41px;
+}
+.check_switch_disable label {
+    pointer-events:none;
+    opacity:0.4;
+}
+/* [Common] - Check Switch > 색상별 */
+.check_switch_blue .input_check:checked+label {
+    background:blue;
+}
+.check_switch_red .input_check:checked+label {
+    background:red;
+}
+.check_switch_sky .input_check:checked+label {
+    background:#10a6e2;
+}
+.check_switch_green .input_check:checked+label {
+    background:green;
+}
+.check_switch_pink .input_check:checked+label {
+    background:pink;
+}
+.check_switch_orange .input_check:checked+label {
+    background:orange;
+}
+/* [Common] - Check Switch */
+.check_small_switch {
+    display:inline-block;
+}
+.check_small_switch .input_check {
+    display:none;
+}
+.check_small_switch label {
+    display:inline-block;
+    position:relative;
+    width:90px;
+    height:25px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:background 0.3s;
+}
+.check_small_switch label:before {
+    content:"";
+    display:block;
+    width:30px;
+    height:14px;
+    margin:6px auto 0;
+    border-radius:6px;
+    background:#e5e5e5;
+}
+.check_small_switch label:after {
+    content:"off";
+    position:absolute;
+    right:0;
+    top:1px;
+    width:28px;
+    color:#9a9a9a;
+    text-align:center;
+}
+.check_small_switch label .icon {
+    position:absolute;
+    left:19px;
+    top:3px;
+    width:20px;
+    height:20px;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 0 3px #ccc;
+    transition:all 0.2s;
+}
+.check_small_switch .input_check:checked+label:after {
+    content:"on";
+    left:0;
+    right:auto;
+}
+.check_small_switch .input_check:checked+label .icon {
+    left:48px;
+}
+/* [Common] - Check Switch > 색상별 */
+.check_small_switch_blue .input_check:checked+label:before {
+    background:#6699ff;
+}
+.check_small_switch_blue .input_check:checked+label:after {
+    color:#007bff;
+}
+.check_small_switch_blue .input_check:checked+label .icon {
+    background:#007bff;
+}
+.check_small_switch_red .input_check:checked+label:before {
+    background:#ff6666;
+}
+.check_small_switch_red .input_check:checked+label:after {
+    color:#ff0000;
+}
+.check_small_switch_red .input_check:checked+label .icon {
+    background:#ff0000;
+}
+.check_small_switch_sky .input_check:checked+label:before {
+    background:#33ccff;
+}
+.check_small_switch_sky .input_check:checked+label:after {
+    color:#10a6e2;
+}
+.check_small_switch_sky .input_check:checked+label .icon {
+    background:#10a6e2;
+}
+.check_small_switch_green .input_check:checked+label:before {
+    background:#669966;
+}
+.check_small_switch_green .input_check:checked+label:after {
+    color:#008000;
+}
+.check_small_switch_green .input_check:checked+label .icon {
+    background:#008000;
+}
+.check_small_switch_pink .input_check:checked+label:before {
+    background:#ffe8ec;
+}
+.check_small_switch_pink .input_check:checked+label:after {
+    color:#ffc0cb;
+}
+.check_small_switch_pink .input_check:checked+label .icon {
+    background:#ffc0cb;
+}
+.check_small_switch_orange .input_check:checked+label:before {
+    background:#ffcc66;
+}
+.check_small_switch_orange .input_check:checked+label:after {
+    color:#ffa500;
+}
+.check_small_switch_orange .input_check:checked+label .icon {
+    background:#ffa500;
+}
