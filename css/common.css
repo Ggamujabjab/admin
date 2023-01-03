@@ -755,3 +755,52 @@
 	border:none;
 	background:#259ded;
 }
+
+/* [Common] - Accordion Default */
+.accordion_default {
+    border-top:1px solid #ccc;
+}
+.accordion_default .title {
+    display:block;
+    padding:10px 20px;
+    font-size:14px;
+    color:#666;
+    text-decoration:none;
+    border:1px solid #ccc;
+    border-top:none;
+    background:#eee;
+}
+.accordion_default .accordion_content {
+    display:none;
+    padding:10px 20px;
+    font-size:14px;
+    border:1px solid #ccc;
+    border-top:none;
+}
+/* [Common] - Accordion Single */
+.accordion_single {}
+.accordion_single .unit {
+    margin-top:10px;
+    border-top:2px solid #0c7fb5;
+    border-radius:5px;
+    background:#fff;
+    box-shadow:0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+}
+.accordion_single .unit:first-child {
+    margin-top:0;
+}
+.accordion_single .unit .title {
+    display:block;
+    padding:10px 15px;
+    font-size:14px;
+    color:#666;
+    text-decoration:none;
+}
+.accordion_single .unit .accordion_content {
+    display:none;
+    padding:10px 15px;
+    font-size:13px;
+    line-height:1.5em;
+    color:#666;
+    border-top:1px solid #eee;
+}
