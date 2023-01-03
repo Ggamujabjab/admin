@@ -1668,3 +1668,18 @@
 .mySwiper_lazy .swiper-slide {
     background:#000;
 }
+
+/* [Aos] - Default */
+.aos {}
+.aos .unit {
+    height:200px;
+    margin-top:200px;
+    padding:50px;
+    font-size:16px;
+    border:1px solid #ccc;
+    background:#eee;
+    box-sizing:border-box;
+}
+.aos .unit:first-child {
+    margin-top:0;
+}
