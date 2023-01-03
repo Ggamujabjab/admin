@@ -804,3 +804,73 @@
     color:#666;
     border-top:1px solid #eee;
 }
+
+/* [Common] - 셀렉트박스 */
+.selectType {
+    display:inline-block;
+    width:200px;
+    height:auto;
+    margin:1px 20px 0 0;
+    border:none;
+}
+.selectType .selectView {
+    width:200px;
+    padding:1px;
+    font-size:12px;
+    font-family:gulim;
+    border:1px solid #ccc;
+    background:#fff;
+}
+.selectType .selectView a {
+    display:block;
+    padding: 9px 8px 9px;font-size: 14px;
+    color:#6d6d6d;
+    text-decoration:none;
+    background:url(../image/common/select_icon_off.gif) 92% 50% no-repeat;
+}
+.selectType .selectView a.on {
+    background:url(../image/common/select_icon_on.gif) 92% 50% no-repeat;
+}
+.selectType .selectView_down a {}
+.selectType .selectView_up a {
+    background-image:url(../image/common/select_icon_on.gif);
+}
+.selectType .selectView_up.active a {
+    background-image:url(../image/common/select_icon_off.gif);
+}
+.selectType .selectViewIcon a,
+.selectType .selectViewIcon a.on {
+    background:none;
+}
+.selectType .selectViewIcon .icon {
+    position:absolute;
+    right:16px;
+    top:16px;
+    width:13px;
+    height:7px;
+    background:url(../image/common/select_icon_off.gif) 0 0 no-repeat;
+    transition:all 0.5s;
+}
+.selectType .selectViewIcon.active .icon {
+    transform:rotate(-180deg);
+}
+.selectType .selectLayer {
+    padding:5px 0;
+    border:1px solid #ccc;
+    background:#fff;
+}
+.selectType .selectLayer li {}
+.selectType .selectLayer li a,
+.selectType .selectLayer li .disable {
+    display:block;
+    padding:5px 10px;
+    font-size:14px;
+    color:#6d6d6d;
+    text-decoration:none;
+}
+.selectType .selectLayer li .disable {
+    opacity:0.6;
+}
+.selectType .selectLayer li.link_active a {
+    background:#f6f6f6;
+}
