@@ -1430,6 +1430,40 @@
     box-sizing: border-box;
 }
 
+/* [Common] - Category Box */
+.category_form {
+    width:100%;
+    border:1px solid #e5e5e5;
+    background:#fff;
+}
+.category_form:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.category_form .ctg_header {
+    display:flex;
+    justify-content:space-between;
+    padding:13px 15px;
+    border-bottom:1px solid #e5e5e5;
+}
+.category_form .ctg_header h4 {
+    display:flex;
+    align-items:center;
+    font-weight:bold;
+    font-size:16px;
+    color:#666
+}
+.category_form .ctg_header .etc {}
+.category_form .ctg_header .etc button {}
+.category_form .ctg_content {
+    float:left;
+    width:100%;
+    padding:15px;
+    font-size:12px;
+    box-sizing:border-box;
+}
+
 /* [Common] - Layer Alert */
 .layer_alert_content {
     display:none;
