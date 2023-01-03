@@ -235,3 +235,47 @@
     border:1px solid #6f2d91;
     background:none;
 }
+
+/* [Common] - Layout Rate */
+.layout_rate {
+    display:flex;
+}
+.layout_rate_10 {
+    margin:0 -10px 20px;
+}
+.layout_rate .col {
+    flex:1;
+    margin:0 10px;
+}
+.layout_rate .col .col_content {
+    min-height:60px;
+    padding:20px;
+    background:#fff;
+    box-shadow:0 0 2px #ccc;
+    box-sizing:border-box;
+}
+.layout_rate .col .col_page_content {
+    padding-bottom:60px;
+}
+/* [Common] - Layout Rate > 2:8 */
+.layout_rate .col_2 {
+    flex:0.2;
+}
+.layout_rate .col_8 {
+    flex:1;
+}
+/* [Common] - Layout Rate > 4:6 */
+.layout_rate .col_4 {
+    flex:0.4;
+}
+.layout_rate .col_6 {
+    flex:1;
+}
+/* [Common] - Layout Rate > 3:3:3 */
+.layout_rate .col_3 {
+    flex:0.3333;
+}
+/* [Common] - Layout Rate > 5:5 */
+.layout_rate .col_5 {
+    flex:0.5;
+}
