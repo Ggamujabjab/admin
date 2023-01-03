@@ -1549,3 +1549,22 @@
     line-height:1.5em;
     color:#333;
 }
+
+/* [Jquery Ui] - Slider */
+.ui-corner-all {
+    border-radius:0;
+}
+.ui-slider .ui-state-default {
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border-color:blue;
+    background:blue;
+}
+.ui-slider .ui-widget-header {
+    background:#6699ff;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top:-0.5em;
+    outline:none;
+}
