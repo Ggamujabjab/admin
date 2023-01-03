@@ -660,3 +660,98 @@
 .progress_default_orange .progress_bar {
     background-color:orange;
 }
+
+/* [Common] - Default Tab */
+.tabType {
+	overflow:hidden;
+	margin:20px 0 -1px;
+	background:url(../image/common/tab_line_bg.gif) repeat-x 0 bottom;
+}
+.tabType li {
+	float:left;
+	margin-right:-1px;
+	border:1px solid #d7dce2;
+	background:#eff1f4;}
+.tabType li a {
+	display:block;
+	padding:8px 25px 5px;
+	font-weight:normal;
+	font-size:14px;
+	color:#8c9397;
+	text-decoration:none;
+	text-align:center;
+}
+.tabType li.active {
+	position:relative;
+	border-color:#0c7fb5;
+	border-bottom-color:#fff;
+	background:#fff;
+}
+.tabType li.active a {
+	color:#0c7fb5;
+	font-weight:bold;
+}
+.tabType li:last-child {}
+.tabType_content {
+	display:none;
+	background:#eff1f4;
+}
+.tab_content,
+.tab_border_content {
+    display:none;
+    padding:20px;
+    border:1px solid #d7dce2;
+}
+.tab_border_content {
+    border-top:none;
+}
+
+/* [Common] - Border Tab */
+.tabType_border {
+    display:flex;
+    border-bottom:1px solid #ccc;
+}
+.tabType_border li {
+    margin-bottom:-1px;
+}
+.tabType_border li a {
+    display:block;
+    padding:12px 15px;
+    font-size:14px;
+    color:#666;
+    text-decoration:none;
+}
+.tabType_border li.active {
+    font-weight:bold;
+    border-bottom:4px solid #0c7fb5;
+}
+.tabType_border li.active a {
+    color:#0c7fb5;
+}
+
+/* [Common] - Sub Tab */
+.tabsubType {
+	overflow:hidden;
+	margin-bottom:15px;
+}
+.tabsubType li {
+	float:left;
+	margin-right:4px;
+	box-sizing:border-box;}
+
+.tabsubType li a {
+	display:block;
+	padding:6px 9px 6px 10px;
+	line-height:16px;
+	font-size:12px;
+	color:#888;
+	text-decoration:none;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+}
+.tabsubType li.active a {
+	padding:7px 10px;
+	color:#fff;
+	border:none;
+	background:#259ded;
+}
