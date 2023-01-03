@@ -1644,3 +1644,27 @@
 .jqueryui_calendar .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
     font-size:14px;
 }
+
+/* [Swiper] - Default */
+.swiper {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    border:1px solid #ccc;
+    background:#eee;
+}
+.swiper-slide {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    height:300px;
+    font-size:18px;
+    background:#fff;
+}
+.swiper-slide img {
+    width:100%;
+}
+.mySwiper_lazy .swiper-slide {
+    background:#000;
+}
