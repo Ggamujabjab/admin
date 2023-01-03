@@ -874,3 +874,336 @@
 .selectType .selectLayer li.link_active a {
     background:#f6f6f6;
 }
+
+/* [Common] - Bbslist 상단 영역 */
+.bbslist_toparea {height:31px; margin:0 0 10px; zoom:1;}
+.bbslist_toparea .count {float:left; margin:7px 10px 0 0; color:#666;}
+.bbslist_toparea .count strong {font-weight:normal;}
+.bbslist_toparea .left {float:left;}
+.bbslist_toparea .left label {float:left; margin:7px 10px 0 0;}
+.bbslist_toparea .left label .input_check {margin:2px 5px 0 0; vertical-align:top;}
+.bbslist_toparea .left .buttons {float:left; margin-right:15px;}
+.bbslist_toparea .label_input input {margin-top:-3px;}
+.bbslist_toparea .right {float:right;}
+.bbslist_toparea .right .buttons {float:left; margin-left:20px;}
+.bbslist_toparea .right .check {float:left; margin-top:7px;}
+.bbslist_toparea .right .check .input_check {margin-right:5px;}
+.bbslist_toparea:after {content:""; display:block; clear:both;}
+/*.bbslist_toparea_bottom {margin-top:55px;}
+.bbslist_toparea .buttons * {display:inline-block; margin-left:1px; padding:7px 17px 6px; font-size:11px; color:#666; line-height:16px; text-decoration:none; border:1px solid #d6d6d6; background:#fff; cursor:pointer;}
+.bbslist_toparea .buttons .fontBold {font-weight:bold;}*/
+/* [Common] - Bbslist 상단 영역 > 날짜 검색 */
+.bbslist_toparea .date_search {float:left;}
+.bbslist_toparea .date_search .select {width:73px; height:31px; vertical-align:top;}
+.bbslist_toparea .date_search .input_text_area {display:inline-block; position:relative; height:31px; text-align:left; vertical-align:top; border:1px solid #d8d8d8; box-sizing: border-box;}
+.bbslist_toparea .date_search .input_text_area .input_text {margin-top:5px;}
+.bbslist_toparea .date_search .input_text_area .first_del,
+.bbslist_toparea .date_search .input_text_area .last_del {
+	position:absolute;
+	right:5px;
+	top:50%;
+	width:20px;
+	height:20px;
+	margin-top:-10px;
+	text-indent:-9999px;
+	border:none;
+	border-radius:50%;
+	background:#eee;
+}
+.bbslist_toparea .date_search .input_text_area .first_del:before,
+.bbslist_toparea .date_search .input_text_area .first_del:after,
+.bbslist_toparea .date_search .input_text_area .last_del:before,
+.bbslist_toparea .date_search .input_text_area .last_del:after {
+	content:"";
+	position:absolute;
+	left:5px;
+	top:9px;
+	width:10px;
+	height:1px;
+	background:#ccc;
+}
+.bbslist_toparea .date_search .input_text_area .first_del:before,
+.bbslist_toparea .date_search .input_text_area .last_del:before {transform:rotate(45deg);}
+.bbslist_toparea .date_search .input_text_area .first_del:after,
+.bbslist_toparea .date_search .input_text_area .last_del:after {transform:rotate(-45deg);}
+.bbslist_toparea .date_search .input_text_area .last_del {}
+.bbslist_toparea .date_search .hyphen {line-height:31px;}
+.bbslist_toparea .date_search .txt {margin-right:10px;}
+.bbslist_toparea .date_search .btn_search {display:inline-block; margin-left:1px; padding:7px 17px 6px; font-size:11px; color:#fff; line-height:16px; text-decoration:none; border:1px solid #007bff; background:#007bff;}
+.bbslist_toparea .left .date_search {float:left; margin-right:15px;}
+.bbslist_toparea .right .date_search {float:left; margin-left:15px;}
+/* [Common] - Bbslist 상단 영역 > 키워드 검색 */
+.bbslist_toparea .keyword {float:left; margin-left:15px;}
+.bbslist_toparea .keyword .select {height:31px; vertical-align:top;}
+.bbslist_toparea .keyword .input_text_area {height:31px; vertical-align:top;}
+.bbslist_toparea .keyword .input_text_area .input_text {margin-top:5px;}
+.bbslist_toparea .keyword2 label {vertical-align:top;}
+.bbslist_toparea .keyword2 label:first-child {margin-right:5px;}
+/* [Common] - Bbslist 상단 영역 > 포인트 검색 */
+.bbslist_toparea .point_search {float:left;}
+.bbslist_toparea .point_search_mgr {margin-right:15px;}
+.bbslist_toparea .point_search .select {height:31px; vertical-align:top;}
+/* [Common] - Bbslist 상단 영역 > 상태,보기 */
+.bbslist_toparea .state,
+.bbslist_toparea .view {float:left; margin-left:20px;}
+.bbslist_toparea .left .state {margin:0 4px 0 0;}
+.bbslist_toparea .state label {color:#666;}
+.bbslist_toparea .state label .input_check {margin:-2px 4px 0 0;}
+.bbslist_toparea .state .select,
+.bbslist_toparea .view .select {min-width:64px; height:31px;}
+.bbslist_toparea .state .btn {display:inline-block; margin-left:1px; padding:8px 17px 5px; font-size:11px; color:#666; line-height:16px; vertical-align:top; text-decoration:none; border:1px solid #d6d6d6; background:#fff; cursor:pointer;}
+/* [Common] - Bbslist 상단 영역 > 컨텐츠 기능 */
+.bbslist_toparea .btn_function {position:relative; float:left; margin-right:18px;}
+.bbslist_toparea .btn_function .btn {display:block; padding:6px 34px 2px 14px; color:#666; text-decoration:none; border:1px solid #d8d8d8; background:url(http://dev.mdnsnew.ondisk.co.kr/image/ui/function_arrow_bg.gif) no-repeat 89px 10px;}
+.bbslist_toparea .btn_function .layer {overflow:hidden; position:absolute; left:0; top:30px; width:487px; padding:9px 0 7px 14px; border:1px solid #d8d8d8; box-sizing:border-box; background:#fff; z-index:1;}
+.bbslist_toparea .btn_function .layer li {float:left; margin-right:20px; line-height:23px;}
+.bbslist_toparea .btn_function .layer li a {color:#666; text-decoration:none;}
+.bbslist_toparea .btn_function .layer li a:hover {text-decoration:underline;}
+/* [Common] - Bbslist 상단 영역 > 시간 설정 */
+.bbslist_toparea .time {float:left; color:#666;}
+.bbslist_toparea .time .input_check {margin:-2px 4px 0 0;}
+
+/* [Common] - Date 선택 */
+.date_choice {margin:30px 0 17px; text-align:center;}
+.date_choice .btn img {vertical-align:middle;}
+.date_choice .prev_month {margin-right:11px;}
+.date_choice .next_month {margin-left:11px;}
+.date_choice .date {display:inline-block; font-size:14px; vertical-align:middle;}
+
+/* [Common] - Bbslist */
+.bbslist {width:100%; margin-top:10px; border-collapse:collapse; border-spacing:0; border-top:1px solid #454854; background:#fff;}
+.bbslist table {width:100%; table-layout:fixed; border-collapse:collapse; border-spacing:0; border-left:1px solid #e1e1e1;}
+.bbslist table th,
+.bbslist table td {padding:10px 10px 9px; font-size:13px; color:#333; line-height:18px;}
+.bbslist table th {font-size:14px; border-top:none; border-right:1px solid #e1e1e1; border-bottom:1px solid #dedede; background:#f5f5f5;}
+.bbslist table td {position:relative; text-align:center; word-break:break-word; border-bottom:1px solid #ededed; border-right:1px solid #e1e1e1;}
+.bbslist table th .input_check,
+.bbslist table td .input_check {margin-top:-3px;}
+.bbslist table th a {color:#333; text-decoration:none;}
+.bbslist table th .select {height:28px; margin:-8px 0 -2px;}
+.bbslist table th label .input_check {margin:-2px 4px 0 0;}
+.bbslist table td.left {text-align:left;}
+.bbslist table td.right {text-align:right;}
+.bbslist table td.top {vertical-align:top;}
+.bbslist table td a {color:#333; text-decoration:none;}
+.bbslist table td a .ripple {color:#cc6699;}
+.bbslist table td a:hover {text-decoration:underline;}
+.bbslist table td .ico_ranking {margin:-5px 4px 0;}
+.bbslist table td .ico_state,
+.bbslist table td .ico_adult {margin:-3px 4px 0;}
+.bbslist table td .ico_private {margin:-2px 4px 0 0;}
+.bbslist table td .ico_ripple {margin:-2px 4px 0 0;}
+.bbslist table td .ico_star {margin:-5px 0 0 0;}
+.bbslist table td .ico_warning {margin:-3px 0 0 0;}
+.bbslist table td .image {margin:-3px 0 0 0;}
+.bbslist table td .tooltip_nick {text-decoration:underline;}
+.bbslist table td img {vertical-align:middle;}
+.bbslist table td label {margin-right:5px;}
+.bbslist table td label input {margin-right:3px;}
+.bbslist table td .select {height:28px; margin:-8px 0 -2px; height:28px;}
+.bbslist table td .input_text_area {height:28px; margin:-8px 0 -2px; background:#fff;}
+.bbslist table td .input_text_area .input_text {margin-top:5px;}
+/*
+.bbslist table td input[type="button"],
+.bbslist table td input[type="submit"],
+.bbslist table td button,
+.bbslist table td .button,
+.bbslist table td .btn {display:inline-block; height:28px; font-size:11px; color:#666; margin:-6px 0 0px; padding:6px 15px 0px; font-family:"돋움", Dotum; line-height:16px; vertical-align:middle; border:1px solid #ccc; box-sizing:border-box; background:#f2f2f2; cursor:pointer;}
+*/
+.bbslist table td input[type="button"] {padding-top:3px;}
+.bbslist table td input[type="button"]:disabled {border:1px solid #eee; background:#f5f5f5;}
+.bbslist table td .button:hover,
+.bbslist table td .btn:hover {text-decoration:none;}
+.bbslist table td .percent {margin-left:4px;}
+.bbslist table td .time {display:block; margin:-5px 0 10px;}
+.bbslist table td .input_text.center {text-align:center;}
+.bbslist table tr.bg_green {background:#99ff66;}
+.bbslist table tr.bg_sky {background:#99ffff;}
+.bbslist table tr.bg_orange {background:#FF9933;}
+.bbslist table tr.notice,
+.bbslist table tr.top {background:#E9F2F4;}
+.bbslist table tr.notice td,
+.bbslist table tr.top td {border-bottom:1px solid #d8e1e3;}
+.bbslist table tfoot th,
+.bbslist table tfoot td {border-right:1px solid #e1e1e1; background:#f5f5f5;}
+.bbslist table tfoot th {border-left:1px solid #e1e1e1; border-bottom:1px solid #ededed;}
+.bbslist table .tfoot th,
+.bbslist table .tfoot td {border-right:1px solid #e1e1e1; background:#f5f5f5;}
+.bbslist table .tfoot th {border-left:1px solid #e1e1e1; border-bottom:1px solid #ededed;}
+.bbslist table .bbslist_faq {display:none;}
+.bbslist table .text_ff0000 {color:#ff0000;}
+.bbslist table .color_fbe3e3 {background:#fbe3e3 !important;}
+.bbslist table .color_3b4dff {background:#3b4dff !important;}
+.bbslist table .color_ff3b3b {background:#ff3b3b !important;}
+.bbslist table .color_f6ff00 {background:#f6ff00 !important;}
+.bbslist table .color_00ff0c {background:#00ff0c !important;}
+.bbslist table .color_f2726e {background:#f2726e !important;}
+.bbslist table .color_afafaf {background:#afafaf !important;}
+.bbslist table .color_eaf6fb {background:#eaf6fb !important;}
+.bbslist table .color_ffe4e4 {background:#ffe4e4 !important;}
+.bbslist table .color_b70005 {background:#b70005 !important;}
+.bbslist table .color_0000ff {background:#0000ff !important;}
+.bbslist table .color_fbbc08 {background:#fbbc08 !important;}
+.bbslist table .color_f5cccc {background:#f5cccc !important;}
+.bbslist table .color_ffffff {border:1px solid #000; box-sizing:border-box; background:#ffffff;}
+.bbslist table .color_aa9999 {background:#aa9999;}
+.bbslist table .color_font_ff0000 {padding-top:9px; color:#ff0000; text-align:center; box-sizing:border-box; border:1px solid #000;}
+.bbslist_bottom {margin-top:55px;}
+/* [Common] - Bbslist2 */
+.bbslist_type2 {border:none;}
+.bbslist_type2 table {border:none;}
+.bbslist_type2 table th,
+.bbslist_type2 table td {border-right:none;}
+.bbslist_type2 table th {border-top:2px solid #000; border-bottom:2px solid #000; background:transparent;}
+/* [Common] - Bbslist3 */
+.bbslist_type3 {border:none;}
+.bbslist_type3 table {border:none;}
+.bbslist_type3 table th,
+.bbslist_type3 table td {border-right:none;}
+.bbslist_type3 table th {color:#fff; background:#000;}
+
+/* [Common] - Bbsview */
+.bbsview {width:100%; margin-top:10px; border-collapse:collapse; border-spacing:0; border-top:1px solid #454854; background:#fff;}
+.bbsview table {width:100%; border-collapse:collapse; border-spacing:0; border-left:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1;}
+.bbsview table th {padding:12px 10px 10px; font-size:14px; color:#333; border-right:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1; background:#f5f5f5;}
+.bbsview table td {padding:6px 9px; font: size 13px;px; color:#888; line-height:18px; border-bottom:1px solid #e1e1e1; border-right:1px solid #e1e1e1;}
+.bbsview table td a {color:#333; text-decoration:none;}
+.bbsview table td a.btn {display:inline-block; font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.bbsview table td .row {margin-bottom:5px;}
+.bbsview table td .row:last-child {margin-bottom:0px;}
+.bbsview table td .select {height:28px; padding:0 0 0 8px;}
+.bbsview table td .input_text_area {height:28px; padding:0 12px;}
+.bbsview table td .input_text_area.disabled {background:#f1f1f1;}
+.bbsview table td .input_text_area .input_text {margin-top:5px;}
+.bbsview table td .textarea_area {display:inline-block; padding:9px 12px 5px; border:1px solid #d8d8d8; box-sizing:border-box;}
+.bbsview table td .textarea_area textarea {width:100%; color:#888; border:none; outline:none; box-sizing:border-box;}
+.bbsview table td .info_txt {display:inline-block; margin-left:5px; font-size:11px; color:#999; vertical-align:middle;}
+.bbsview table td .info_txt_block {display:block; margin:5px 0 0;}
+.bbsview table td .ico_ranking {margin:-5px 4px 0;}
+.bbsview table td .ico_state {margin:-3px 4px 0;}
+.bbsview table th.sub_th {font-weight:normal;}
+.bbsview table td img {vertical-align:middle;}
+.bbsview table td .image_url {word-break:break-all;}
+.bbsview table td.content {height:200px; vertical-align:top;}
+.bbsview label {display:inline-block; margin:2px 35px 2px 5px; font-size:11px; color:#999; line-height:20px;}
+.bbsview label .input_check,
+.bbsview label .input_radio {margin:-2px 4px 0 0;}
+.bbsview table td input[type="button"],
+.bbsview table td input[type="submit"] {font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.bbsview table .textarea_content {height:250px; border:1px solid #ccc; padding:10px 15px; box-sizing:border-box;}
+/* [Common] - Bbsview > Button */
+.bbsview_bottom {margin-top:55px;}
+.bbsview_button {width:100%; margin-top:20px;}
+.bbsview_button:after {content:""; display:block; clear:both;}
+.bbsview_button .left {float:left;}
+.bbsview_button .left a,
+.bbsview_button .left button {margin-right:3px;}
+.bbsview_button .right {float:right;}
+.bbsview_button .right a,
+.bbsview_button .right button {margin-left:3px;}
+/* [Common] - Bbsview > Date */
+.date_search {}
+.date_search .select {width:73px; height:31px; vertical-align:top;}
+.date_search .input_text_area {display:inline-block; position:relative; height:31px; vertical-align:top; border:1px solid #d8d8d8; background:#fff; box-sizing: border-box;}
+.date_search .input_text_area .input_text {margin-top:5px;}
+.date_search .input_text_area .first_del,
+.date_search .input_text_area .last_del {
+	position:absolute;
+	right:5px;
+	top:50%;
+	width:20px;
+	height:20px;
+	margin-top:-10px;
+	text-indent:-9999px;
+	border:none;
+	border-radius:50%;
+	background:#eee;
+}
+.date_search .input_text_area .first_del:before,
+.date_search .input_text_area .first_del:after,
+.date_search .input_text_area .last_del:before,
+.date_search .input_text_area .last_del:after {
+	content:"";
+	position:absolute;
+	left:5px;
+	top:9px;
+	width:10px;
+	height:1px;
+	background:#ccc;
+}
+.date_search .input_text_area .first_del:before,
+.date_search .input_text_area .last_del:before {transform:rotate(45deg);}
+.date_search .input_text_area .first_del:after,
+.date_search .input_text_area .last_del:after {transform:rotate(-45deg);}
+.date_search .input_text_area .last_del {}
+.date_search .hyphen {line-height:31px;}
+.date_search .txt {margin-right:10px;}
+
+/* [Common] - Bbswrite */
+.bbswrite {width:100%; margin-top:10px; border-collapse:collapse; border-spacing:0; border-top:1px solid #454854; background:#fff;}
+.bbswrite table {width:100%; border-collapse:collapse; border-spacing:0; border-left:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1;}
+.bbswrite table th {padding:12px 10px 10px; font-size:14px; color:#333; border-right:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1; background:#f5f5f5;}
+.bbswrite table td {padding:6px 9px; font-size:13px; color:#888; line-height:18px; border-bottom:1px solid #e1e1e1; border-right:1px solid #e1e1e1;}
+.bbswrite table td a {color:#333; text-decoration:none;}
+.bbswrite table td a.btn {display:inline-block; font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.bbswrite table td .row {margin-bottom:5px;}
+.bbswrite table td .row:last-child {margin-bottom:0px;}
+.bbswrite table td .select {height:28px; padding:0 0 0 8px;}
+.bbswrite table td .input_text_area {height:30px;}
+.bbswrite table td .input_text_area.disabled {background:#f1f1f1;}
+.bbswrite table td .input_text_area .input_text {height:22px; margin-top:5px;}
+.bbswrite table td .textarea_area {display:inline-block; padding:9px 12px 5px; border:1px solid #d8d8d8; box-sizing:border-box;}
+.bbswrite table td .textarea_area textarea {width:100%; color:#888; border:none; outline:none; box-sizing:border-box;}
+.bbswrite table td .info_txt {display:inline-block; margin-left:5px; font-size:11px; color:#999; vertical-align:middle;}
+.bbswrite table td .info_txt_block {display:block; margin:5px 0 0;}
+.bbswrite table td .ico_ranking {margin:-5px 4px 0;}
+.bbswrite table td .ico_state {margin:-3px 4px 0;}
+.bbswrite table td .radio_default label .icon {top:0;}
+.bbswrite table th.sub_th {font-weight:normal;}
+.bbswrite table td img {vertical-align:middle;}
+.bbswrite table td .image_url {word-break:break-all;}
+.bbswrite table td.content {height:200px; vertical-align:top;}
+.bbswrite label {margin:2px 35px 2px 0;}
+.bbswrite label .input_check,
+.bbswrite label .input_radio {margin:-2px 4px 0 0;}
+.bbswrite table td input[type="button"],
+.bbswrite table td input[type="submit"] {font-size:13px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.bbswrite table .textarea_content {display:block; height:250px; border:1px solid #ccc; padding:10px 15px; box-sizing:border-box;}
+.bbswrite table .textarea_content .textarea {font-size:13px;}
+/* [Common] - Bbswrite > Button */
+.bbswrite_button {margin-top:20px; text-align:center;}
+.bbswrite_button a,
+.bbswrite_button span {margin:0 3px;}
+
+/* [Common] - TblList */
+.tblList {width:100%; margin-top:10px; border-collapse:collapse; border-spacing:0; border-top:1px solid #454854; background:#fff;}
+.tblList table {width:100%; border-collapse:collapse; border-spacing:0; border-left:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1;}
+.tblList table th {padding:12px 10px 10px; font-size:14px; color:#333; border-right:1px solid #e1e1e1; border-bottom:1px solid #e1e1e1; background:#f5f5f5;}
+.tblList table td {padding:6px 15px; font-size:13px; color:#888; line-height:18px; border-bottom:1px solid #e1e1e1; border-right:1px solid #e1e1e1;}
+.tblList table td a {color:#333; text-decoration:none;}
+.tblList table td a.btn {display:inline-block; font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.tblList table td .row {margin-bottom:5px;}
+.tblList table td .row:last-child {margin-bottom:0px;}
+.tblList table td .select {height:28px; padding:0 0 0 8px;}
+.tblList table td .input_text_area {height:28px; padding:0 12px;}
+.tblList table td .input_text_area.disabled {background:#f1f1f1;}
+.tblList table td .input_text_area .input_text {margin-top:5px;}
+.tblList table td .textarea_area {padding:9px 12px 5px; border:1px solid #d8d8d8; box-sizing:border-box;}
+.tblList table td .textarea_area textarea {color:#888;}
+.tblList table td .info_txt {display:inline-block; margin-left:5px; font-size:11px; color:#999; vertical-align:middle;}
+.tblList table td .info_txt_block {display:block; margin:5px 0 0;}
+.tblList table td .ico_ranking {margin:-5px 4px 0;}
+.tblList table td .ico_state {margin:-3px 4px 0;}
+.tblList table td .button {display:inline-block; margin-left:1px; padding:8px 17px 5px; font-size:11px; color:#666; line-height:16px; text-decoration:none; border:1px solid #d6d6d6; background:#fff; cursor:pointer;}
+.tblList table td .button_active {color:#fff; background:#259ded;}
+.tblList table th.sub_th {font-weight:normal;}
+.tblList table td img {vertical-align:middle;}
+.tblList table td .image_url {word-break:break-all;}
+.tblList table td.content {height:200px; vertical-align:top;}
+.tblList label {display:inline-block; margin:6px 20px 2px 5px; font-size:11px; color:#999; line-height:20px;}
+.tblList label .input_check,
+.tblList label .input_radio {margin:-2px 4px 0 0;}
+.tblList table td input[type="button"],
+.tblList table td input[type="submit"] {font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
+.tblList table .textarea_content {height:250px; border:1px solid #ccc; padding:10px 15px; box-sizing:border-box;}
+.tblList_bottom {margin-top:55px;}
