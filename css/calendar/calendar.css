@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+* {margin:0; padding:0; color:#888;}
+
+/* 달력 */
+.calendar_form_parent {
+    position:relative;
+}
+.calendar_form_parent * {
+    font-family:'Quicksand', sans-serif;
+}
+.calendar_form_parent .input_text {
+    vertical-align:middle;
+}
+.calendar_form {
+    display:block;
+    /*background:#f3f3f3;*/
+}
+.calendar_header {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    margin-bottom:35px;
+}
+.calendar_header button {
+    position:relative;
+    width:40px;
+    height:40px;
+    text-indent:-9999px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+}
+.calendar_header button:before,
+.calendar_header button:after {
+    content:"";
+    position:absolute;
+    left:10px;
+    width:15px;
+    height:2px;
+    background:#63e4a3;
+}
+.calendar_header button:before {
+    top:14px;
+    transform:rotate(-45deg);
+}
+.calendar_header button:after {
+    top:24px;
+    transform:rotate(45deg);
+}
+.calendar_header .btn_prev {
+    
+}
+.calendar_header .btn_next {
+    
+}
+.calendar_header .btn_next:before,
+.calendar_header .btn_next:after {
+    left:auto;
+    right:10px;
+}
+.calendar_header .btn_next:before {
+    transform:rotate(45deg);
+}
+.calendar_header .btn_next:after {
+    transform:rotate(-45deg);
+}
+.calendar_header .date {
+    display:inline-block;
+    margin:0 50px;
+    font-weight:500;
+    font-size:20px;
+    vertical-align:middle;
+}
+.calendar_body {
+    width:100%;
+    border-collapse:collapse;
+    /*border-top:1px solid #888;
+    border-left:1px solid #888;*/
+    table-layout:fixed;
+}
+.calendar_body th,
+.calendar_body td {
+    padding:15px 10px;
+    font-size:16px;
+    color:#666;
+    /*border-right:1px solid #888;
+    border-bottom:1px solid #888;*/
+}
+.calendar_body th {
+    /*background:#ccc;*/
+}
+.calendar_body td {
+    padding:0;
+    color:#666;
+    text-align:center;
+}
+.calendar_body td a {
+    display:block;
+    padding:20px 10px;
+    color:#666;
+    text-decoration:none;
+}
+.calendar_body td a span {
+    color:#333;
+}
+.calendar_body th.sun,
+.calendar_body td.sun span,
+.calendar_body td.sun a {
+    color:#ff0000;
+}
+.calendar_body th.sat,
+.calendar_body td.sat span,
+.calendar_body td.sat a {
+    color:#0004ff;
+}
+.calendar_body td a.btn_date span {
+    display:inline-block;
+    width:21px;
+    height:21px;
+    border-radius:50%;
+}
+.calendar_body td.today a,
+.calendar_body td.today span,
+.calendar_body td.choice_day a,
+.calendar_body td.choice_day span {
+    display:block;
+    padding:10px;
+    font-weight:bold;
+    color:#666;
+    text-align:center;
+    /*background:#fffa90;*/
+}
+.calendar_body td.choice_day span {
+    color:#fff;
+    background:#0067c0;
+}
+.calendar_body td.today a span {
+    color:#fff;
+    background:#63e4a3;
+}
+.calendar_body td.disabled,
+.calendar_body td.space {
+    opacity:0.4;
+}
+.calendar_controll_box {
+    width:100%;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid #ccc;
+}
+.calendar_controll_box:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.calendar_controll_box .btn_today button {
+    padding:8px 15px;
+    font-size:14px;
+    color:#666;
+    border:1px solid #ccc;
+    background:transparent;
+    cursor:pointer;
+}
+
+/* 레이어 형태 */
+.calendar_form_layer {
+    display:none;
+    position:absolute;
+    width:300px;
+    padding:5px;
+    border:1px solid #c5c5c5;
+    background:#fff;
+    z-index:100;
+}
+.calendar_form_layer_fade {
+    display:block;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.4s, visibility 0.4s;
+}
+.calendar_form_layer_fade_active {
+    opacity:1;
+    visibility:visible;
+}
+.calendar_form_layer .calendar_header {
+    margin-bottom:15px;
+    /*border:1px solid #ddd;
+    border-radius:5px;
+    background:#e9e9e9;*/
+}
+.calendar_form_layer .calendar_header button {
+    position:absolute;
+    top:5px;
+    width:30px;
+    height:30px;
+    border:none;
+}
+.calendar_form_layer .calendar_header .btn_prev {
+    left:10px;
+}
+.calendar_form_layer .calendar_header .btn_next {
+    right:10px;
+}
+.calendar_form_layer .calendar_header button:before,
+.calendar_form_layer .calendar_header button:after {
+    width:8px;
+    height:2px;
+}
+.calendar_form_layer .calendar_header button.btn_prev:before {
+    left:10px;
+    top:11px;
+}
+.calendar_form_layer .calendar_header button.btn_prev:after {
+    left:10px;
+    top:16px;
+}
+.calendar_form_layer .calendar_header button.btn_next:before {
+    right:10px;
+    top:11px;
+}
+.calendar_form_layer .calendar_header button.btn_next:after {
+    right:10px;
+    top:16px;
+}
+.calendar_form_layer .calendar_header .date {
+    margin-top:9px;
+    font-size:16px;
+}
+.calendar_form_layer .calendar_header .date .select {
+    padding:3px;
+    font-size:13px;
+    color:#666;
+    border:1px solid #ccc;
+}
+.calendar_form_layer .calendar_body {
+    width:100%;
+    border-collapse:collapse;
+    border:none;
+    table-layout:fixed;
+}
+.calendar_form_layer .calendar_body th,
+.calendar_form_layer .calendar_body td {
+    padding:10px;
+    font-size:12px;
+    border:none;
+}
+.calendar_form_layer .calendar_body th {
+    background:transparent;
+}
+.calendar_form_layer .calendar_body td {
+    padding:1px;
+    color:#666;
+    text-align:center;
+}
+.calendar_form_layer .calendar_body td span,
+.calendar_form_layer .calendar_body td a {
+    display:block;
+    padding:0;
+    text-decoration:none;
+    text-align:center;
+    /*border:1px solid #c5c5c5;
+    background:#f6f6f6;*/
+}
+.calendar_form_layer .calendar_body td span {
+    height:31px;
+}
+.calendar_form_layer .calendar_body td a span {
+    width:31px;
+    height:31px;
+}
+.calendar_form_layer .calendar_body td a.btn_date span {
+    height:27px;
+    padding-top:4px;
+}
+.calendar_form_layer .calendar_controll_box {
+    width:100%;
+    margin:10px 0 5px;
+    padding-top:10px;
+    border-top:1px solid #ddd;
+}
+.calendar_form_layer .calendar_controll_box:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+.calendar_form_layer .calendar_controll_box .btn_today {
+    float:left;
+}
+.calendar_form_layer .calendar_controll_box .btn_close {
+    float:right;
+}
+.calendar_form_layer .calendar_controll_box .btn_today button,
+.calendar_form_layer .calendar_controll_box .btn_close button {
+    padding:5px 8px;
+    font-size:11px;
+    color:#666;
+    border:1px solid #ccc;
+    background:transparent;
+    cursor:pointer;
+}
+.calendar_form_layer .calendar_controll_box .btn_type_image button {
+    padding:0;
+    border:none;
+}

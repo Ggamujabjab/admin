@@ -551,6 +551,802 @@ function overviewImage(eleId, option){
 	}
 }
 
+// 캘린더
+function calendar(option){
+    /* ◈◈◈◈◈ Option ◈◈◈◈◈
+    calendarId : "#js_calendarForm" ----- 캘린더 전체영역
+    dateFormat : "yy-mm-dd" ----- 달력 날짜 형태
+    buttonUse : false ----- 레이어 오픈 버튼 생성
+    showView : "layer" ----- 달력 오픈 형태("default" or "layer")
+    layerPos : "bottom" ----- 레이어 위치("top" or "bottom")
+    layerEffect : "default" ----- 레이어 활성화 모션("default" or "fade")
+    dayNamesMin : ["일", "월", "화", "수", "목", "금", "토"] ----- 요일 형태 배열
+    dateFormat : "text" ----- "text" or "/" or "." ----- 날짜 타이틀 형식
+    changeYear : false ----- 년도 Select 박스 여부
+    changeMonth : false ----- 월 Select 박스 여부
+    showOtherMonths : false ----- 1일 이전, 말일 이후에 빈공간
+    minDate : false ----- 활성화 최소 날짜
+    maxDate : false ----- 활성화 최대 날짜
+    disabledDay : [] ----- 개별 비활성화 날짜 배열
+    todayUse : false ----- 오늘버튼 기능
+    layerCloseUse : { 
+        show : true, ----- 닫기 버튼 생성(true or false)
+        text : "닫기" ----- 버튼 텍스트("닫기") 또는 이미지 경로("img/btn_close.gif")
+    }
+    */
+    var options = {
+        calendarId : "#js_calendarForm", // Input ID
+        dateFormat : "yy-mm-dd", // 달력 날짜 형태
+        buttonUse : false, // 레이어 오픈 버튼 생성
+        showView : "layer", // 달력 오픈 형태("default" or "layer")
+        layerPos : "bottom", // 레이어 위치("top" or "bottom")
+        layerEffect : "default", // 레이어 활성화 모션("default" or "fade")
+        dayNamesMin : ["일", "월", "화", "수", "목", "금", "토"], // 요일 형태 배열
+        dateFormat : "text", // 날짜 타이틀 형식("text" or "/" or ".")
+        changeYear : false, // 년도 Select 박스 여부
+        changeMonth : false, // 월 Select 박스 여부
+        showOtherMonths : false, // 1일 이전, 말일 이후에 빈공간
+        minDate : false,// 활성화 최소 날짜
+        maxDate : false,// 활성화 최대 날짜
+        disabledDay : [], // 개별 비활성화 날짜 배열
+        todayUse : false, // 오늘버튼 기능
+        layerCloseUse : {
+            show : true, // 닫기 버튼 생성(true or false)
+            text : "닫기" // 버튼 텍스트("닫기") 또는 이미지 경로("img/btn_close.gif")
+        }
+    };
+
+    // 최종 옵션값
+    var opt = Object.assign(options, option);
+
+    // 날짜 함수
+    var initDate = new Date()
+    , date = new Date()
+    , dateDay = date.getDate();
+
+    // 캘린더
+    var calendarForm = document.querySelector(opt.calendarId)
+    , calendarInput = calendarForm.querySelector(".input_text")
+    , calendarLayer = calendarForm.querySelector(".calendar_form");
+
+    // 초기 레이어 옵션 - 위치
+    calendarLayer.style.left = 0;
+    if( opt.layerPos === "bottom" ){
+		if( calendarInput.closest(".input_text_area") ){
+			calendarLayer.style.top = calendarInput.closest(".input_text_area").offsetHeight + "px";
+		} else {
+			calendarLayer.style.top = calendarInput.offsetHeight + "px";
+		}
+    } else {
+		if( calendarInput.closest(".input_text_area") ){
+			calendarLayer.style.bottom = calendarInput.closest(".input_text_area").offsetHeight + "px";
+		} else {
+			calendarLayer.style.bottom = calendarInput.offsetHeight + "px";
+		}
+    }
+
+    // 초기 레이어 기본 클래스
+    if( opt.showView === "layer" ){
+        calendarLayer.classList.add("calendar_form_layer");
+
+        if( opt.layerEffect === "default" ){
+            calendarLayer.style.display = "none";
+        } else {
+            setTimeout(() => {
+                calendarLayer.classList.add("calendar_form_layer_fade");
+            });
+        }
+    }
+
+    // UI 생성
+    uiCreate();
+
+    // 목록이 들어갈 영역
+    var tbodyForm = calendarLayer.querySelector("#js_dateTbody")
+    , dateBtnPrev = calendarLayer.querySelector(".btn_prev")
+    , dateBtnNext = calendarLayer.querySelector(".btn_next")
+    , calendarListCount = 0
+	, todayOldActive = null;
+
+    // 목록 생성
+    monthDate();
+
+    // 타이틀 월별 생성
+    dateTextView({
+        dateValue : date
+    });
+
+    // 레이어 형태
+    if( opt.showView !== "default" ){
+        // 레이어 빈공간 클릭
+        calendarLayer.addEventListener("click", function(e){
+            // 기본 링크 삭제
+            e.preventDefault();
+            // 버블링 삭제
+            e.stopPropagation();
+        });
+
+        // 입력 Input Click
+        calendarInput.addEventListener("click", function(e){
+            // 버블링 삭제
+            e.stopPropagation();
+        });
+
+        // 레이어 활성화 버튼 여부
+        if( !opt.buttonUse ){
+            // 입력 Input Click
+            calendarInput.addEventListener("click", function(e){
+                // 달력 레이어 활성화
+                layerClose({ show : true });
+            });
+        } else {
+            var btnLayerOpen = calendarForm.querySelector(".btn_open");
+            btnLayerOpen.addEventListener("click", function(e){
+                // 버블링 삭제
+                e.stopPropagation();
+
+                if( opt.layerEffect === "default" ){
+                    if( calendarLayer.style.display === "none" ){
+                        // 달력 레이어 활성화
+                        layerClose({ show : true });
+                    } else {
+                        // 달력 레이어 활성화
+                        layerClose({ show : false });
+                    }
+                } else {
+                    if( !calendarLayer.classList.contains("calendar_form_layer_fade_active") ){
+                        // 달력 레이어 활성화
+                        layerClose({ show : true });    
+                    } else {
+                        // 달력 레이어 활성화
+                        layerClose({ show : false });
+                    }
+                }
+            });
+        }
+
+        // window 클릭
+        window.addEventListener("click", function(e){
+            // 레이어 숨김(default)
+            if( calendarLayer.style.display === "block" ){
+                // 달력 레이어 활성화
+                layerClose({ show : false });
+            }
+
+            // 레이어 숨김(fade)
+            if( calendarLayer.classList.contains("calendar_form_layer_fade_active") ){
+                // 달력 레이어 활성화
+                layerClose({ show : false });
+            }
+        });
+
+        // 닫기 버튼 활성화
+        if( opt.layerCloseUse.show ){
+            var btnClose = calendarLayer.querySelector(".btn_close button");
+            // 닫기 버튼 클릭
+            btnClose.addEventListener("click", function(){
+                // 달력 레이어 비활성화
+                layerClose({ show : false });
+            }); 
+        }
+    } else {
+        calendarInput.style.display = "none";
+    }
+
+    // 오늘 버튼 활성화
+    if( opt.todayUse ){
+        var btnToday = calendarLayer.querySelector(".btn_today button");
+        // 오늘 버튼 클릭
+        btnToday.addEventListener("click", function(){
+            // 활성화된 날짜가 오늘이 아닐경우
+            if( date.getFullYear() !== initDate.getFullYear() || date.getMonth() !== initDate.getMonth() ){
+                // 날짜 목록 삭제
+                dateReset();
+
+                // 활성화 년, 월 생성
+                dateTextView({
+                    dateValue : initDate
+                });
+
+                // 목록 생성
+                monthDate();
+            }
+        }); 
+    }
+
+    // 이전달 버튼 클릭
+    dateBtnPrev.addEventListener("click", function(e){
+        // 기본 링크 삭제
+        e.preventDefault();
+
+        // 날짜 목록 삭제
+        dateReset();
+
+        // 활성화 년, 월 생성
+        dateTextView({
+            dateValue : date,
+            mValue : -1
+        });
+
+        // 목록 생성
+        monthDate();
+    });
+
+    // 다음달 버튼 클릭
+    dateBtnNext.addEventListener("click", function(e){
+        // 기본 링크 삭제
+        e.preventDefault();
+
+        // 날짜 목록 삭제
+        dateReset();
+
+        // 활성화 년, 월 생성
+        dateTextView({
+            dateValue : date,
+            mValue : 1
+        });
+
+        // 목록 생성
+        monthDate();
+    });
+
+    // 년, 월 셀렉트박스 Change 이벤트
+    function calendarSelEvent(){
+        // 년도
+        if( opt.changeYear ){
+            var selectYear = calendarLayer.querySelector(".js_select_year");
+            // Select Change 이벤트
+            selectYear.addEventListener("change", function(){
+                // 날짜 목록 삭제
+                dateReset();
+
+                // 활성화 년, 월 생성
+                dateTextView({
+                    dateValue : date,
+                    yValue : Number(this.value)
+                });
+
+                // 목록 생성
+                monthDate();
+            });
+        }
+
+        // 월별
+        if( opt.changeMonth ){
+            var selectMonth = calendarLayer.querySelector(".js_select_month");
+            // Select Change 이벤트
+            selectMonth.addEventListener("change", function(){
+                // 날짜 목록 삭제
+                dateReset();
+
+                // 활성화 년, 월 생성
+                dateTextView({
+                    dateValue : date,
+                    sValue : Number(this.value)
+                });
+
+                // 목록 생성
+                monthDate();
+            });
+        }
+    }    
+
+    // 달력 버튼 이벤트
+    function calendarBtnEvent(){
+        var calendarButton = calendarLayer.querySelectorAll(".btn_date");
+        Array.prototype.forEach.call(calendarButton, function(v, i){
+            v.addEventListener("click", function(e){
+                // 기본 링크 삭제
+                e.preventDefault();
+
+                // 년, 월, 일 생성
+                var year = this.parentNode.getAttribute("data-year")
+                , month = dateLength(this.parentNode.getAttribute("data-month"))
+                , day = dateLength(this.innerText)
+                , result = null;
+
+				// 이전 클릭한 날짜 비활성화
+				if( todayOldActive ){
+					todayOldActive.parentNode.classList.remove("choice_day");
+				}
+
+				// 클래스 추가
+				this.parentNode.classList.add("choice_day");
+
+                // 기본 텍스트형
+                if( opt.dateFormat === "text" ){
+                    result = year + "-" + month + "-" + day;
+                } else {
+                    result = year + opt.dateFormat + month + opt.dateFormat + day;
+                }
+
+                // 최종값 적용
+                calendarInput.value = result;
+
+				// 현재 선택한 요일 저장
+				todayOldActive = this;
+            });
+        });
+    }
+
+    // 테이블 내용 생성
+    function monthDate(){
+        var dateToday = new Date()
+        , firstDate = new Date(date.getFullYear(), date.getMonth())
+        , lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0);
+
+        // 초기 Tr 생성
+        var rows = tbodyForm.insertRow();
+        // 테이블 1일 앞쪽 빈 TD
+        monthFirstSpace({ tr : rows, first : firstDate });
+
+        for( var i=0; i<lastDate.getDate(); i++ ){
+            // TD 생성
+            var colums = rows.insertCell();
+            colums.setAttribute("data-year", date.getFullYear());
+            colums.setAttribute("data-month", date.getMonth()+1);
+
+            // 선택 가능한 최소 활성화 버튼
+            if( opt.minDate ){
+                var dateMin = new Date(opt.minDate)
+                , dateMinYear = dateMin.getFullYear()
+                , dateMinMonth = dateMin.getMonth()+1
+                , dateMinDay = dateMin.getDate();
+
+                if( date.getFullYear() !== dateMinYear ){
+                    colums.classList.add("disabled");
+                } else {
+                    if( date.getMonth()+1 < dateMinMonth ){
+                        colums.classList.add("disabled");
+                    } else if( date.getMonth()+1 === dateMinMonth ) {
+                        if( i+1 < dateMinDay ){
+                            colums.classList.add("disabled");
+                        }
+                    }
+                }
+            }
+
+            // 선택 가능한 최소 활성화 버튼
+            if( opt.maxDate ){
+                var dateMax = new Date(opt.maxDate)
+                , dateMaxYear = dateMax.getFullYear()
+                , dateMaxMonth = dateMax.getMonth()+1
+                , dateMaxDay = dateMax.getDate();
+
+                if( date.getFullYear() !== dateMaxYear ){
+                    colums.classList.add("disabled");
+                } else {
+                    if( date.getMonth()+1 > dateMaxMonth ){
+                        colums.classList.add("disabled");
+                    } else if( date.getMonth()+1 === dateMaxMonth ) {
+                        if( i+1 > dateMaxDay ){
+                            colums.classList.add("disabled");
+                        }
+                    }
+                }
+            }
+
+            // 비활성화 요일
+            if( opt.disabledDay.length ){
+                for( var j=0; j<opt.disabledDay.length; j++ ){
+                    var valueYear = Number(opt.disabledDay[j].split("/")[0])
+                    , valueMonth = Number(opt.disabledDay[j].split("/")[1])
+                    , valueDay = Number(opt.disabledDay[j].split("/")[2]);
+
+                    if( valueYear === date.getFullYear() &&
+                        valueMonth === date.getMonth()+1 &&
+                        valueDay === i+1
+                    ){
+                        colums.classList.add("disabled");
+                    }
+                }
+            }
+            
+            // 오늘 활성화
+            if( dateToday.getFullYear() === date.getFullYear() && dateToday.getMonth()+1 === date.getMonth()+1 ){
+                if( (dateDay - 1) === i ){
+                    colums.classList.add("today");
+                }
+            }
+
+            // 버튼 생성
+            if( colums.classList.contains("disabled") ){
+                var span = document.createElement("span")
+                span.innerText = i + 1;
+
+                colums.append( span );
+            } else {
+                // 버튼 생성
+                var button = document.createElement("a")
+				, buttonSpan = document.createElement("span");
+                button.setAttribute("href", "#");
+                button.classList.add("btn_date");
+				button.append( buttonSpan );
+                buttonSpan.innerText = i + 1;
+
+                colums.append( button );
+            }
+
+            // 총 카운트 증가
+            calendarListCount++;
+
+            // 7칸을 기준으로 Row 생성
+            if( calendarListCount % 7 === 0 ){
+                colums.classList.add("sat");
+
+                rows = tbodyForm.insertRow();
+            } else if( calendarListCount % 7 === 1 ){
+                colums.classList.add("sun");
+            }
+        }
+
+        // 테이블 말일 뒤쪽 빈 TD
+        monthLastSpace({ tr : rows, last : lastDate });
+
+        // 달력 버튼 이벤트
+        calendarBtnEvent();
+    }
+
+    // 테이블 1일 앞쪽 빈 TD
+    function monthFirstSpace(m){
+        var row = m.tr
+        , firstNum = m.first;
+
+        var monthPrevDate = new Date(date.getFullYear(), date.getMonth(), 0)
+        , monthPrevDay = monthPrevDate.getDate();
+
+        for( i=0; i<firstNum.getDay(); i++ ){
+            var colums = row.insertCell();
+
+            // 1일 이전 빈공간 활성화 여부
+            if( opt.showOtherMonths ){
+                var spanTag = document.createElement("span");
+                // Td 추가 및 속성
+                colums.classList.add("space");
+                colums.append( spanTag );
+
+                // Span 태그 테스트 추가
+                spanTag.innerText = (monthPrevDay - (firstNum.getDay() - 1)) + i;
+            }
+
+            // 총 카운트 증가
+            calendarListCount++;
+        }
+    }
+
+    // 테이블 말일 뒤쪽 빈 TD
+    function monthLastSpace(m){
+        var row = m.tr
+        , lastNum = m.last;
+
+        for( i=lastNum.getDay()+1; i<7; i++ ){
+            var colums = row.insertCell()
+
+            // 말일 이전 빈공간 활성화 여부
+            if( opt.showOtherMonths ){
+                var spanTag = document.createElement("span");
+                // Td 추가 및 속성
+                colums.classList.add("space");
+                colums.append( spanTag );
+
+                // Span 태그 테스트 추가
+                spanTag.innerText = i;
+            }
+
+            // 총 카운트 증가
+            calendarListCount++;
+        }
+    }
+
+    // 활성화 년, 월 생성
+    function dateTextView(m){
+        var mDate = m.dateValue
+        , yearValue = m.yValue ? m.yValue : null
+        , monthValue = m.mValue ? m.mValue : null
+        , selectMonthValue = m.sValue ? m.sValue : null;
+
+        var titleDate = calendarLayer.querySelector("#js_dateTitle");
+        if( !yearValue ){
+            date.setFullYear(mDate.getFullYear());
+        } else {
+            date.setFullYear(yearValue);
+        }
+        if( !monthValue ){
+            if( selectMonthValue ){
+                var setMonthCheck = date.setMonth(selectMonthValue-1);
+            } else {
+                var setMonthCheck = date.setMonth(mDate.getMonth());
+            }
+        } else {
+            var setMonthCheck = date.setMonth(mDate.getMonth() + monthValue);            
+        }
+        var totalMonth = new Date(setMonthCheck)
+        , firstValue = null
+        , lastValue = null;
+
+        // 년도 출력(텍스트 또는 셀렉트박스)
+        if( opt.changeYear ){
+            var yearSelect = document.createElement("select")
+            , yearSelectFirst = initDate.getFullYear() - 11;
+            yearSelect.classList.add("select", "js_select_year");
+
+            // Option 21개 생성(앞으로 10개, 뒤로 10개)
+            for( i=0; i<21; i++ ){
+                var yearSelectOption = document.createElement("option");
+                yearSelectOption.setAttribute("value", yearSelectFirst + (i + 1));
+                // 현재 년도를 활성화
+                if( yearSelectFirst + (i + 1) === mDate.getFullYear() ){
+                    yearSelectOption.selected = true;
+                }
+                yearSelectOption.innerText = yearSelectFirst + (i + 1);
+
+                yearSelect.append( yearSelectOption );
+            }
+
+            firstValue = yearSelect;
+        } else {
+            firstValue = totalMonth.getFullYear();
+        }
+
+        // 월 출력(텍스트 또는 셀렉트박스)
+        if( opt.changeMonth ){
+            var yearMonth = document.createElement("select")
+            yearMonth.classList.add("select", "js_select_month");
+
+            // Option 21개 생성(앞으로 10개, 뒤로 10개)
+            for( j=0; j<12; j++ ){
+                var yearMonthOption = document.createElement("option");
+                yearMonthOption.setAttribute("value", j + 1);
+                // 현재 년도를 활성화
+                if( j + 1 === mDate.getMonth() + 1 ){
+                    yearMonthOption.selected = true;
+                }
+                yearMonthOption.innerText = j + 1;
+
+                yearMonth.append( yearMonthOption );
+            }
+
+            lastValue = yearMonth;
+        } else {
+            lastValue = dateLength(totalMonth.getMonth()+1);
+        }
+
+        // 기본 텍스트형
+        if( opt.dateFormat === "text" ){
+            titleDate.innerHTML = "";
+            // 최종 티이틀 적용
+            titleDate.append( 
+                firstValue,
+                "년 ",
+                lastValue,
+                "월"
+            );
+        } else { // 기호형 "/" or "."
+            titleDate.innerHTML = "";
+            // 최종 티이틀 적용
+            titleDate.append( 
+                firstValue,
+                " " + opt.dateFormat + " ",
+                lastValue
+            );
+        }
+
+        // 셀력트박스(년, 월) 이벤트
+        calendarSelEvent();
+    }
+
+    // 달력 비활성화
+    function layerClose(m){
+        if( m.show ){
+            // 여러개 달력레이어가 열려있을경우
+            if( Object.keys(document.querySelectorAll(".calendar_form")).length >= 2 ){
+                var calendarForm = document.querySelectorAll(".calendar_form");
+                
+                for( var i=0; i<Object.keys(calendarForm).length; i++ ){
+                    if( calendarForm[i].style.display ){
+                        calendarForm[i].style.display = "none";
+                    } else {
+                        calendarForm[i].classList.remove("calendar_form_layer_fade_active");
+                    }
+                }
+            }
+
+            if( opt.layerEffect === "default" ){
+                if( calendarLayer.style.opacity !== 1 ){
+                    calendarLayer.style.opacity = 1;    
+                }
+                if( calendarLayer.style.visibility !== "visible" ){
+                    calendarLayer.style.visibility = "visible";
+                }
+
+                calendarLayer.style.display = "block";
+            } else if( opt.layerEffect === "fade" ) {
+                calendarLayer.classList.add("calendar_form_layer_fade_active");
+            }
+        } else {
+            if( opt.layerEffect === "default" ){
+                calendarLayer.style.display = "none";
+            } else {
+                calendarLayer.classList.remove("calendar_form_layer_fade_active");
+            }
+        }        
+    }
+
+    // UI 생성
+    function uiCreate(){
+        // 레이어 활성화 버튼 생성
+        if( opt.buttonUse ){
+			// 여러번 실행했을경우 기존 버튼 삭제
+			if( calendarForm.querySelector("button") ){
+				calendarForm.querySelector("button").remove();
+			}
+
+			var inputBtnHeight = calendarInput.closest(".input_text_area") ? calendarInput.closest(".input_text_area").clientHeight : calendarInput.clientHeight
+            , openBotton = document.createElement("button");
+            openBotton.classList.add("btn_open");
+            openBotton.style.cssText = "width:" + inputBtnHeight + "px; height:" + inputBtnHeight + "px; margin-left:3px; text-indent:-9999px; vertical-align:middle; border:none; background:url('../../image/common/calendar.png') 0 0 / contain no-repeat; cursor:pointer";
+            openBotton.innerText = "달력 오픈";
+            
+            calendarForm.append( openBotton );
+            calendarForm.insertBefore(openBotton, calendarLayer);
+        }
+
+        // 날짜 영역 생성
+        var headerForm = document.createElement("div")
+        , headerBtnPrev = document.createElement("button")
+        , headerDate = document.createElement("span")
+        , headerBtnNext = document.createElement("button");
+
+        // 날짜 리스트 생성
+        var bodyTable = document.createElement("table")
+        , bodyThead = document.createElement("thead")
+        , bodyTheadTr = document.createElement("tr")
+        , bodyTbody = document.createElement("tbody");
+
+        // ▶▶▶ 날짜 상단 영역 ◀◀◀
+        // 날짜 영역
+        headerForm.classList.add("calendar_header");
+
+        // 이전달 버튼
+        headerBtnPrev.setAttribute("type", "button");
+        headerBtnPrev.classList.add("btn_prev");
+        headerBtnPrev.innerText = "이전";
+        
+        // 요일 텍스트
+        headerDate.setAttribute("id", "js_dateTitle");
+        headerDate.classList.add("date");
+
+        // 이전달 버튼
+        headerBtnNext.setAttribute("type", "button");
+        headerBtnNext.classList.add("btn_next");
+        headerBtnNext.innerText = "다음";
+
+        // 내용 적용
+        headerForm.append(
+            headerBtnPrev,
+            headerDate,
+            headerBtnNext
+        );
+
+        // ▶▶▶ 요일 목록 영역 ◀◀◀
+        bodyTable.classList.add("calendar_body");
+
+        // Th 생성
+        for( var th=0; th<opt.dayNamesMin.length; th++ ){
+            var bodyTheadTh = document.createElement("th")
+            bodyTheadTh.setAttribute("scope", "col");
+            bodyTheadTh.innerText = opt.dayNamesMin[th];
+
+            // 일요일 클래스 추가
+            if( th === 0 ){
+                bodyTheadTh.classList.add("sun");
+            } else if( th === opt.dayNamesMin.length - 1 ){ // 토요일 클래스 추가
+                bodyTheadTh.classList.add("sat");
+            }
+            
+            bodyTheadTr.append(
+                bodyTheadTh
+            );
+        }
+
+        // Thead 생성
+        bodyThead.append(
+            bodyTheadTr
+        );
+
+        // Tbody 생성
+        bodyTbody.setAttribute("id", "js_dateTbody");
+
+        // 테이블 생성
+        bodyTable.append(
+            bodyThead,
+            bodyTbody
+        )
+
+        // 캘린더 전체영역 생성
+        calendarLayer.append(
+            headerForm,
+            bodyTable
+        );
+
+        // ▶▶▶ 하단 컨트롤 영역 ◀◀◀
+        if( opt.todayUse || opt.layerCloseUse.show ){
+            // 하단 컨트롤 영역
+            var bottomForm = document.createElement("div");
+            bottomForm.classList.add("calendar_controll_box");
+
+            // 오늘 버튼 영역
+            if( opt.todayUse ){
+                var bottomToday = document.createElement("p")
+                , bottomTodayBtn = document.createElement("button");
+
+                bottomToday.classList.add("btn_today");
+                bottomTodayBtn.setAttribute("type", "button");
+                bottomTodayBtn.innerText = "오늘";
+                bottomToday.append( bottomTodayBtn );
+                
+                bottomForm.append( bottomToday );
+            }
+
+            // 닫기 버튼 영역
+            if( opt.layerCloseUse.show ){
+                // 레이어 형태일때만 닫기버튼 생성
+                if( opt.showView === "layer" ){
+                    var bottomClose = document.createElement("p")
+                    , bottomCloseBtn = document.createElement("button");
+                    // 닫기버튼 생성
+                    bottomCloseBtn.setAttribute("type", "button");
+                    bottomClose.classList.add("btn_close");
+                    // 이미지형 체크
+                    if ( /(\.gif|\.jpg|\.jpeg)$/i.test(opt.layerCloseUse.text) ) {
+                        bottomClose.classList.add("btn_type_image");
+                        // 이미지 생성
+                        var btn_close_img = document.createElement("img");
+                        btn_close_img.setAttribute("src", opt.layerCloseUse.text);
+                        btn_close_img.setAttribute("alt", "닫기");
+                        bottomCloseBtn.append( btn_close_img );
+                    } else {
+                        bottomCloseBtn.innerText = opt.layerCloseUse.text;
+                    }
+                    bottomClose.append( bottomCloseBtn );
+
+                    // 닫기 버튼 Append
+                    bottomForm.append( bottomClose );
+                }
+            }
+
+            // 캘린더 전체영역 생성
+            calendarLayer.append(
+                bottomForm
+            );
+        }
+    }
+
+    // 달력 날짜 초기화
+    function dateReset(){
+        // 테이블 날짜 내용 삭제
+        tbodyForm.innerHTML = "";
+
+        // 전체 카운팅 초기화
+        calendarListCount = 0;
+    }
+
+    // 월, 일 한자리 일경우 2자리로 변경
+    function dateLength(value){
+        var data = String(value)
+        , result = null;
+
+        // Data값이 한자리일경우
+        if( data.length === 1 ){
+            result = "0" + data;
+        } else {
+            result = data;
+        }
+
+        return result;
+    }
+}
+
 // 상단 이동
 function btnTopMove(){
     // 상단 버튼
