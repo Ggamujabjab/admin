@@ -51,3 +51,187 @@
 .h3Type .etc button {}
 .h3Type .etc button.button {}
 
+/* [Common] - Button */
+.btn_type {
+    display:inline-block;
+    padding:10px 15px;
+    font-size:14px;
+    color:#666;
+    text-decoration:none;
+    border:none;
+    border-radius:2px;
+}
+/* [Common] - Button > 사이즈별 */
+.btn_large {
+    padding:15px 20px;
+    font-size:18px;
+}
+.btn_small {
+    padding:5px 10px;
+    font-size:12px;
+}
+/* [Common] - Button > 비활성화 */
+.btn_disabled {
+    pointer-events:none;
+    opacity:0.5;
+}
+/* [Common] - Button > 라운드 */
+.btn_round {
+    border-radius:20px;
+}
+.btn_round.btn_large {
+    border-radius:28px;
+}
+.btn_round.btn_small {
+    border-radius:14px;
+}
+/* [Common] - Button > 목적형 */
+.btn_default {
+    background:#ddd;
+}
+.btn_primary {
+    color:#fff;
+    background:#007bff;
+}
+.btn_secondary {
+    color:#fff;
+    background:#6c757d;
+}
+.btn_success {
+    color:#fff;
+    background:#28a745;
+}
+.btn_danger {
+    color:#fff;
+    background:#dc3545;
+}
+.btn_warning {
+    color:#fff;
+    background:#ffc107;
+}
+.btn_info {
+    color:#fff;
+    background:#17a2b8;
+}
+.btn_light {
+    border:none;
+    background:#f8f9fa;
+}
+.btn_dark {
+    color:#fff;
+    background:#343a40;
+}
+.btn_link {
+    color:#417cff;
+    border:none;
+    background:transparent;
+    box-shadow:none;
+}
+/* [Common] - Button > 색상형 */
+.btn_lightgray {
+    background:#ddd;
+}
+.btn_black {
+    color:#fff;
+    background:#000;
+}
+.btn_red {
+    color:#fff;
+    background:#ff0000;
+}
+.btn_blue {
+    color:#fff;
+    background:#004fff;
+}
+.btn_yellow {
+    color:#fff;
+    background:#f4db5a;
+}
+.btn_green {
+    color:#fff;
+    background:#007e46;
+}
+.btn_pink {
+    color:#fff;
+    background:#ee8aa2;
+}
+.btn_gray {
+    color:#fff;
+    background:#bfbfbf;
+}
+.btn_orange {
+    color:#fff;
+    background:#f24c10;
+}
+.btn_sky {
+    color:#fff;
+    background:#10a6e2;
+}
+.btn_brown {
+    color:#fff;
+    background:#d8783b;
+}
+.btn_purple {
+    color:#fff;
+    background:#6f2d91;
+}
+/* [Common] - Button > Outline */
+.btn_outline.btn_lightgray {
+    border:1px solid #ddd;
+    background:none;
+}
+.btn_outline.btn_black {
+    color:#000;
+    border:1px solid #000;
+    background:none;
+}
+.btn_outline.btn_red {
+    color:#ff0000;
+    border:1px solid #ff0000;
+    background:none;
+}
+.btn_outline.btn_blue {
+    color:#004fff;
+    border:1px solid #004fff;
+    background:none;
+}
+.btn_outline.btn_yellow {
+    color:#f4db5a;
+    border:1px solid #f4db5a;
+    background:none;
+}
+.btn_outline.btn_green {
+    color:#007e46;
+    border:1px solid #007e46;
+    background:none;
+}
+.btn_outline.btn_pink {
+    color:#ee8aa2;
+    border:1px solid #ee8aa2;
+    background:none;
+}
+.btn_outline.btn_gray {
+    color:#bfbfbf;
+    border:1px solid #bfbfbf;
+    background:none;
+}
+.btn_outline.btn_orange {
+    color:#f24c10;
+    border:1px solid #f24c10;
+    background:none;
+}
+.btn_outline.btn_sky {
+    color:#10a6e2;
+    border:1px solid #10a6e2;
+    background:none;
+}
+.btn_outline.btn_brown {
+    color:#d8783b;
+    border:1px solid #d8783b;
+    background:none;
+}
+.btn_outline.btn_purple {
+    color:#6f2d91;
+    border:1px solid #6f2d91;
+    background:none;
+}
