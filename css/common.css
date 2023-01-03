@@ -1207,3 +1207,225 @@
 .tblList table td input[type="submit"] {font-size:11px; height:28px; color:#666; padding:6px 15px 3px; font-family:"돋움", Dotum; vertical-align:middle; line-height:16px; border:1px solid #ccc; background:#f2f2f2; box-sizing:border-box; cursor:pointer;}
 .tblList table .textarea_content {height:250px; border:1px solid #ccc; padding:10px 15px; box-sizing:border-box;}
 .tblList_bottom {margin-top:55px;}
+
+/* [Common] - Paging */
+.paging {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:20px;
+    text-align:center;
+}
+.paging strong,
+.paging a, 
+.paging span {
+    display:inline-block;
+    margin:0 2px;
+    padding:5px 10px;
+    font-size:16px;
+    color:#666;
+    text-decoration:none;
+}
+.paging strong {
+    position:relative;
+    color:#007bff;
+}
+.paging strong:after {
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:16px;
+    height:2px;
+    background:#007bff;
+    transform:translateX(-50%);
+}
+.paging a,
+.paging span {
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+}
+.paging a.first,
+.paging span.first,
+.paging a.prev,
+.paging span.prev,
+.paging a.next,
+.paging span.next,
+.paging a.last,
+.paging span.last {
+    width:20px;
+    height:20px;
+    padding:5px;
+    text-indent:-9999px;
+}
+.paging a.prev {
+    margin-right:5px;
+}
+.paging a.next {
+    margin-left:5px;
+}
+.paging span.first,
+.paging span.prev,
+.paging span.next,
+.paging span.lst {
+    opacity:0.2;
+}
+.paging a.disable {
+    opacity:0.2;
+    cursor:default;
+    pointer-events:none;
+}
+.paging a.first:before,
+.paging span.first:before,
+.paging a.first:after,
+.paging span.first:after,
+.paging a.prev:after,
+.paging span.prev:after,
+.paging a.next:after,
+.paging span.next:after,
+.paging a.last:before,
+.paging span.last:before,
+.paging a.last:after,
+.paging span.last:after {
+    content:"";
+}
+.paging a.first:before,
+.paging span.first:before {
+    width:2px;
+    height:12px;
+    margin-right:5px;
+    background:#888;
+}
+.paging a.first:after,
+.paging span.first:after,
+.paging a.prev:after,
+.paging span.prev:after,
+.paging a.next:after,
+.paging span.next:after,
+.paging a.last:before,
+.paging span.last:before {
+    width:6px;
+    height:6px;
+}
+.paging a.first:after,
+.paging span.first:after,
+.paging a.prev:after,
+.paging span.prev:after {
+    border-bottom:2px solid #888;
+    border-left:2px solid #888;
+    transform:rotate(45deg);
+}
+.paging a.next:after,
+.paging span.next:after,
+.paging a.last:before,
+.paging span.last:before {
+    border-bottom:2px solid #888;
+    border-right:2px solid #888;
+    transform:rotate(-45deg);
+}
+.paging a.last:after,
+.paging span.last:after {
+    width:2px;
+    height:12px;
+    margin-left:5px;
+    background:#888;
+}
+/* [Common] - Paging Ellipsis */
+.paging_round strong,
+.paging_round a {
+    font-size:13px;
+    color:#767676;
+}
+.paging_round strong {
+    width:24px;
+    height:24px;
+    padding:0;
+    color:#fff;
+    border-radius:50%;
+    background:#767676;
+    box-sizing:border-box;
+}
+.paging_round strong:after {
+    display:none;
+}
+.paging_round a {}
+.paging_round .ellipsis {
+    margin:0;
+    padding:5px;
+}
+.paging_round a.prev,
+.paging_round span.prev,
+.paging_round a.next,
+.paging_round span.next {
+    width:24px;
+    height:24px;
+    margin:0;
+    padding:0;
+    border:1px solid #ccc;
+    border-radius:50%;
+}
+.paging_round a.prev:before,
+.paging_round a.prev:after,
+.paging_round span.prev:after,
+.paging_round a.next:before,
+.paging_round a.next:after,
+.paging_round span.next:after {
+    width:4px;
+    height:4px;
+}
+.paging_round span.prev:after,
+.paging_round a.prev:before,
+.paging_round a.prev:after {
+    border-bottom-width:1px;
+    border-left-width:1px;
+}
+.paging_round span.next:after,
+.paging_round a.next:before,
+.paging_round a.next:after {
+    border-bottom-width:1px;
+    border-right-width:1px;
+}
+
+/* [Common] - Paging */
+.paging_search {
+    display:inline-block;
+    clear:both;
+    width:100%;
+    margin-top:30px;
+    color:#666;
+    text-align:center;
+}
+.paging_search .select {
+    min-width:85px;
+    height:33px;
+    vertical-align:middle;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+.paging_search .input_text_area {
+    display:inline-block;
+    height:33px;
+    vertical-align:middle;
+    border:1px solid #d8d8d8;
+    background:#fff;
+    box-sizing: border-box;
+}
+.paging_search .input_text_area .input_text {
+    margin-top:6px;
+    border:none;
+}
+.paging_search .btn_search {
+    display:inline-block;
+    min-width:66px;
+    padding:5px 7px;
+    font-weight:bold;
+    font-family:"돋움", Dotum;
+    color:#fff;
+    line-height:21px;
+    vertical-align:middle;
+    text-decoration:none;
+    border:1px solid #007bff;
+    background:#007bff;
+    box-sizing: border-box;
+}
