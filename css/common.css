@@ -1602,3 +1602,45 @@
     top:-0.5em;
     outline:none;
 }
+
+/* [Jquery Ui] - Inline */
+.jqueryui_calendar .ui-datepicker .ui-datepicker-header {
+    padding:0.8em 0;
+}
+.jqueryui_calendar .ui-datepicker .ui-datepicker-prev,
+.jqueryui_calendar .ui-datepicker .ui-datepicker-next {
+    top:10px;
+}
+.jqueryui_calendar .ui-state-hover {
+    border:none;
+}
+.jqueryui_calendar .ui-datepicker .ui-datepicker-prev-hover {
+    left:2px;
+}
+.jqueryui_calendar .ui-datepicker .ui-datepicker-next-hover {
+    right:2px;
+}
+.jqueryui_calendar .ui-widget.ui-widget-content {
+    width:100%;
+}
+.jqueryui_calendar .ui-datepicker .ui-datepicker-title,
+.jqueryui_calendar .ui-datepicker select.ui-datepicker-year,
+.jqueryui_calendar .ui-datepicker select.ui-datepicker-month {
+    font-size:14px;
+}
+.jqueryui_calendar .ui-datepicker select.ui-datepicker-year {
+    width:7%;
+}
+.jqueryui_calendar .ui-datepicker select.ui-datepicker-month {
+    width:5%;
+}
+.jqueryui_calendar .ui-state-default {
+    padding:14px;
+}
+.jqueryui_calendar .ui-datepicker th,
+.jqueryui_calendar .ui-datepicker td {
+    font-size:14px;
+}
+.jqueryui_calendar .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    font-size:14px;
+}
