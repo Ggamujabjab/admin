@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab Guide</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../../css/jqueryui/jquery-ui.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -707,8 +707,24 @@ $("#js_tabActiveType").tabType({
 - active : 1 ----- 탭활성화 숫자, 1부터 시작이며 클릭하는 탭 갯수만큼 적용되며 그 이상이 될경우 첫번째탭이 활성화됨
 - eventType : "click" ----- 이벤트 설정("click", "mouseenter")
 */
-$("#js_tabActiveType").tabType({
-    active : 2
+$("#js_tabClick").tabType();
+
+// 활성화 버튼 클릭 영역
+var clickActiveWrap = $("#js_clickActive")
+, clickActiveBtn = clickActiveWrap.find("a");
+
+// 버튼 클릭
+clickActiveBtn.on("click", function(e){
+    // 기본링크 기능삭제
+    e.preventDefault();
+
+    // 현재 선택한 메뉴 Index
+    var index = $(this).index();
+
+    // 현재 메뉴 활성화
+    if( !$("#js_tabClick a.tab").eq(index).parent().hasClass("active") ){
+        $("#js_tabClick a.tab").eq(index).trigger("click");
+    }
 });
 </script>    
 </xmp>
