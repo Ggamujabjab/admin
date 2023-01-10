@@ -304,8 +304,8 @@
                             <!-- Category Content -->
                             <div class="ctg_content">
                                 <p class="category_title">
-                                    Default
-                                    <span class="msg">(기본 <span class="point">링크</span>만 적용)</span>
+                                    기본 디자인
+                                    (탭에 들어간 ID는 상황에 맞게 변경해서 사용하시기 바랍니다.)
                                 </p>
                                 <!-- [Common] - Default Tab -->
                                 <ul class="tabType">
@@ -337,10 +337,69 @@
                                 </div>
                                 <!-- //[UI] - Source -->
 
-                                <p class="category_title">
-                                    Default
-                                    <span class="msg">(<span class="point">Script</span> 적용)</span>
-                                </p>
+                                <p class="category_title">기본 보더 디자인</p>
+                                <!-- [Common] - Border Tab -->
+                                <ul class="tabType_border">
+                                    <li class="active"><a href="#">첫번째탭</a></li>
+                                    <li><a href="#">두번째탭</a></li>
+                                    <li><a href="#">세번째탭</a></li>
+                                </ul>
+                                <!-- //[Common] - Border Tab -->
+
+                                <!-- [UI] - Source -->
+                                <div class="source">
+                                    <div class="tit">Source</div>
+                                    <p class="btn_close">
+                                        <a href="#">
+                                            닫기
+                                            <span class="icon"></span>
+                                        </a>
+                                    </p>
+                                    <pre>
+<xmp><!-- [Common] - Border Tab -->
+<ul class="tabType_border">
+    <li class="active"><a href="#">첫번째탭</a></li>
+    <li><a href="#">두번째탭</a></li>
+    <li><a href="#">세번째탭</a></li>
+</ul>
+<!-- //[Common] - Border Tab -->
+</xmp>
+                                    </pre>
+                                </div>
+                                <!-- //[UI] - Source -->
+
+                                <p class="category_title">2뎁스 탭 디자인</p>
+                                <!-- [Common] - Sub Tab -->
+                                <ul class="tabsubType">
+                                    <li class="active"><a href="#">서브탭메뉴11</a></li>
+                                    <li><a href="#">서브탭메뉴22</a></li>
+                                    <li><a href="#">서브탭메뉴33</a></li>
+                                </ul>
+                                <!-- //[Common] - Sub Tab -->
+
+                                <!-- [UI] - Source -->
+                                <div class="source">
+                                    <div class="tit">Source</div>
+                                    <p class="btn_close">
+                                        <a href="#">
+                                            닫기
+                                            <span class="icon"></span>
+                                        </a>
+                                    </p>
+                                    <pre>
+<xmp><!-- [Common] - Sub Tab -->
+<ul class="tabsubType">
+    <li class="active"><a href="#">서브탭메뉴11</a></li>
+    <li><a href="#">서브탭메뉴22</a></li>
+    <li><a href="#">서브탭메뉴33</a></li>
+</ul>
+<!-- //[Common] - Sub Tab -->
+</xmp>
+                                    </pre>
+                                </div>
+                                <!-- //[UI] - Source -->
+
+                                <p class="category_title">Tab Script 기본 적용</p>
                                 <!-- [Common] - Default Tab -->
                                 <ul id="js_tabType" class="tabType">
                                     <li><a href="#js_tab_default_content1" class="tab">첫번째탭</a></li>
@@ -434,55 +493,18 @@ $("#js_tabType").tabType();
                                     </pre>
                                 </div>
                                 <!-- //[UI] - Source -->
-                                
-                                <p class="category_title">
-                                    BorderBox Tab
-                                    <span class="msg">(기본 <span class="point">링크</span>만 적용)</span>
-                                </p>
-                                <!-- [Common] - Border Tab -->
-                                <ul class="tabType_border">
-                                    <li class="active"><a href="#">첫번째탭</a></li>
-                                    <li><a href="#">두번째탭</a></li>
-                                    <li><a href="#">세번째탭</a></li>
-                                </ul>
-                                <!-- //[Common] - Border Tab -->
 
-                                <!-- [UI] - Source -->
-                                <div class="source">
-                                    <div class="tit">Source</div>
-                                    <p class="btn_close">
-                                        <a href="#">
-                                            닫기
-                                            <span class="icon"></span>
-                                        </a>
-                                    </p>
-                                    <pre>
-<xmp><!-- [Common] - Border Tab -->
-<ul class="tabType_border">
-    <li class="active"><a href="#">첫번째탭</a></li>
-    <li><a href="#">두번째탭</a></li>
-    <li><a href="#">세번째탭</a></li>
-</ul>
-<!-- //[Common] - Border Tab -->
-</xmp>
-                                    </pre>
-                                </div>
-                                <!-- //[UI] - Source -->
-
-                                <p class="category_title">
-                                    BorderBox Tab
-                                    <span class="msg">(<span class="point">Script</span>만 적용)</span>
-                                </p>
-                                <!-- [Common] - Border Tab -->
-                                <ul id="js_tabType_border" class="tabType_border">
-                                    <li><a href="#js_tab_border_content1" class="tab">첫번째탭</a></li>
-                                    <li><a href="#js_tab_border_content2" class="tab">두번째탭</a></li>
-                                    <li><a href="#js_tab_border_content3" class="tab">세번째탭</a></li>
+                                <p class="category_title">Tab Script <span class="point">초기활성화</span> 적용</p>
+                                <!-- [Common] - Default Tab -->
+                                <ul id="js_tabActiveType" class="tabType">
+                                    <li><a href="#js_tab_active_content1" class="tab">첫번째탭</a></li>
+                                    <li><a href="#js_tab_active_content2" class="tab">두번째탭</a></li>
+                                    <li><a href="#js_tab_active_content3" class="tab">세번째탭</a></li>
                                 </ul>
-                                <!-- //[Common] - Border Tab -->
+                                <!-- //[Common] - Default Tab -->
 
                                 <!-- [Common] - Content -->
-                                <div id="js_tab_border_content1" class="tab_border_content">
+                                <div id="js_tab_active_content1" class="tab_content">
                                     내용입니다.1111111111111111<br>
                                     내용입니다.1111111111111111<br>
                                     내용입니다.1111111111111111<br>
@@ -492,7 +514,7 @@ $("#js_tabType").tabType();
                                 <!-- //[Common] - Content -->
 
                                 <!-- [Common] - Content -->
-                                <div id="js_tab_border_content2" class="tab_border_content">
+                                <div id="js_tab_active_content2" class="tab_content">
                                     내용입니다.2222222222222222<br>
                                     내용입니다.2222222222222222<br>
                                     내용입니다.2222222222222222<br>
@@ -502,7 +524,7 @@ $("#js_tabType").tabType();
                                 <!-- //[Common] - Content -->
 
                                 <!-- [Common] - Content -->
-                                <div id="js_tab_border_content3" class="tab_border_content">
+                                <div id="js_tab_active_content3" class="tab_content">
                                     내용입니다.3333333333333333<br>
                                     내용입니다.3333333333333333<br>
                                     내용입니다.3333333333333333<br>
@@ -516,7 +538,7 @@ $("#js_tabType").tabType();
                                 - active : 1 ----- 탭활성화 숫자, 1부터 시작이며 클릭하는 탭 갯수만큼 적용되며 그 이상이 될경우 첫번째탭이 활성화됨
                                 - eventType : "click" ----- 이벤트 설정("click", "mouseenter")
                                 */
-                                $("#js_tabType_border").tabType({
+                                $("#js_tabActiveType").tabType({
                                     active : 2
                                 });
                                 </script>
@@ -531,28 +553,28 @@ $("#js_tabType").tabType();
                                         </a>
                                     </p>
                                     <pre>
-<xmp><!-- [Common] - Border Tab -->
-<ul id="js_tabType_border" class="tabType_border">
-    <li><a href="#js_tab_border_content1" class="tab">첫번째탭</a></li>
-    <li><a href="#js_tab_border_content2" class="tab">두번째탭</a></li>
-    <li><a href="#js_tab_border_content3" class="tab">세번째탭</a></li>
+<xmp><!-- [Common] - Default Tab -->
+<ul id="js_tabActiveType" class="tabType">
+    <li><a href="#js_tab_active_content1" class="tab">첫번째탭</a></li>
+    <li><a href="#js_tab_active_content2" class="tab">두번째탭</a></li>
+    <li><a href="#js_tab_active_content3" class="tab">세번째탭</a></li>
 </ul>
-<!-- //[Common] - Border Tab -->
+<!-- //[Common] - Default Tab -->
 
 <!-- [Common] - Content -->
-<div id="js_tab_border_content1" class="tab_border_content">
+<div id="js_tab_active_content1" class="tab_content">
     내용입니다.1111111111111111
 </div>
 <!-- //[Common] - Content -->
 
 <!-- [Common] - Content -->
-<div id="js_tab_border_content2" class="tab_border_content">
+<div id="js_tab_active_content2" class="tab_content">
     내용입니다.2222222222222222
 </div>
 <!-- //[Common] - Content -->
 
 <!-- [Common] - Content -->
-<div id="js_tab_border_content3" class="tab_border_content">
+<div id="js_tab_active_content3" class="tab_content">
     내용입니다.3333333333333333
 </div>
 <!-- //[Common] - Content -->
@@ -562,25 +584,87 @@ $("#js_tabType").tabType();
 - active : 1 ----- 탭활성화 숫자, 1부터 시작이며 클릭하는 탭 갯수만큼 적용되며 그 이상이 될경우 첫번째탭이 활성화됨
 - eventType : "click" ----- 이벤트 설정("click", "mouseenter")
 */
-$("#js_tabType_border").tabType({
+$("#js_tabActiveType").tabType({
     active : 2
 });
-</script>
+</script>    
 </xmp>
                                     </pre>
                                 </div>
                                 <!-- //[UI] - Source -->
 
-                                <p class="category_title">Sub Tab</p>
-                                <!-- [Common] - Sub Tab -->
-                                <ul class="tabsubType">
-                                    <li class="active"><a href="#">서브탭메뉴11</a></li>
-                                    <li><a href="#">서브탭메뉴22</a></li>
-                                    <li><a href="#">서브탭메뉴33</a></li>
-                                    <li><a href="#">서브탭메뉴44</a></li>
-                                    <li><a href="#">서브탭메뉴55</a></li>
+                                <p class="category_title">Tab Script <span class="point">버튼 클릭후 탭 활성화</span> 적용</p>
+                                <!-- [Common] - Default Tab -->
+                                <ul id="js_tabClick" class="tabType">
+                                    <li><a href="#js_tab_click_content1" class="tab">첫번째탭</a></li>
+                                    <li><a href="#js_tab_click_content2" class="tab">두번째탭</a></li>
+                                    <li><a href="#js_tab_click_content3" class="tab">세번째탭</a></li>
                                 </ul>
-                                <!-- //[Common] - Sub Tab -->
+                                <!-- //[Common] - Default Tab -->
+
+                                <!-- [Common] - Content -->
+                                <div id="js_tab_click_content1" class="tab_content">
+                                    내용입니다.1111111111111111<br>
+                                    내용입니다.1111111111111111<br>
+                                    내용입니다.1111111111111111<br>
+                                    내용입니다.1111111111111111<br>
+                                    내용입니다.1111111111111111
+                                </div>
+                                <!-- //[Common] - Content -->
+
+                                <!-- [Common] - Content -->
+                                <div id="js_tab_click_content2" class="tab_content">
+                                    내용입니다.2222222222222222<br>
+                                    내용입니다.2222222222222222<br>
+                                    내용입니다.2222222222222222<br>
+                                    내용입니다.2222222222222222<br>
+                                    내용입니다.2222222222222222
+                                </div>
+                                <!-- //[Common] - Content -->
+
+                                <!-- [Common] - Content -->
+                                <div id="js_tab_click_content3" class="tab_content">
+                                    내용입니다.3333333333333333<br>
+                                    내용입니다.3333333333333333<br>
+                                    내용입니다.3333333333333333<br>
+                                    내용입니다.3333333333333333<br>
+                                    내용입니다.3333333333333333
+                                </div>
+                                <!-- //[Common] - Content -->
+
+                                <!-- 샘플 버튼 -->
+                                <div id="js_clickActive" class="sample_button">
+                                    <a href="#">1번 탭 활성화</a>
+                                    <a href="#">2번 탭 활성화</a>
+                                    <a href="#">3번 탭 활성화</a>
+                                </div>
+                                <!-- //샘플 버튼 -->
+                                <script type="text/javascript">
+                                // Tab Script
+                                /* === option ===
+                                - active : 1 ----- 탭활성화 숫자, 1부터 시작이며 클릭하는 탭 갯수만큼 적용되며 그 이상이 될경우 첫번째탭이 활성화됨
+                                - eventType : "click" ----- 이벤트 설정("click", "mouseenter")
+                                */
+                                $("#js_tabClick").tabType();
+
+                                // 활성화 버튼 클릭 영역
+                                var clickActiveWrap = $("#js_clickActive")
+                                , clickActiveBtn = clickActiveWrap.find("a");
+
+                                // 버튼 클릭
+                                clickActiveBtn.on("click", function(e){
+                                    // 기본링크 기능삭제
+                                    e.preventDefault();
+
+                                    // 현재 선택한 메뉴 Index
+                                    var index = $(this).index();
+
+                                    // 현재 메뉴 활성화
+                                    if( !$("#js_tabClick a.tab").eq(index).parent().hasClass("active") ){
+                                        $("#js_tabClick a.tab").eq(index).trigger("click");
+                                    }
+                                });
+                                </script>
 
                                 <!-- [UI] - Source -->
                                 <div class="source">
@@ -592,15 +676,41 @@ $("#js_tabType_border").tabType({
                                         </a>
                                     </p>
                                     <pre>
-<xmp><!-- [Common] - Sub Tab -->
-<ul class="tabsubType">
-    <li class="active"><a href="#">서브탭메뉴11</a></li>
-    <li><a href="#">서브탭메뉴22</a></li>
-    <li><a href="#">서브탭메뉴33</a></li>
-    <li><a href="#">서브탭메뉴44</a></li>
-    <li><a href="#">서브탭메뉴55</a></li>
+<xmp><!-- [Common] - Default Tab -->
+<ul id="js_tabActiveType" class="tabType">
+    <li><a href="#js_tab_active_content1" class="tab">첫번째탭</a></li>
+    <li><a href="#js_tab_active_content2" class="tab">두번째탭</a></li>
+    <li><a href="#js_tab_active_content3" class="tab">세번째탭</a></li>
 </ul>
-<!-- //[Common] - Sub Tab -->
+<!-- //[Common] - Default Tab -->
+
+<!-- [Common] - Content -->
+<div id="js_tab_active_content1" class="tab_content">
+    내용입니다.1111111111111111
+</div>
+<!-- //[Common] - Content -->
+
+<!-- [Common] - Content -->
+<div id="js_tab_active_content2" class="tab_content">
+    내용입니다.2222222222222222
+</div>
+<!-- //[Common] - Content -->
+
+<!-- [Common] - Content -->
+<div id="js_tab_active_content3" class="tab_content">
+    내용입니다.3333333333333333
+</div>
+<!-- //[Common] - Content -->
+<script type="text/javascript">
+// Tab Script
+/* === option ===
+- active : 1 ----- 탭활성화 숫자, 1부터 시작이며 클릭하는 탭 갯수만큼 적용되며 그 이상이 될경우 첫번째탭이 활성화됨
+- eventType : "click" ----- 이벤트 설정("click", "mouseenter")
+*/
+$("#js_tabActiveType").tabType({
+    active : 2
+});
+</script>    
 </xmp>
                                     </pre>
                                 </div>
