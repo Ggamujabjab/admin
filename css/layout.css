@@ -369,7 +369,7 @@ body::-webkit-scrollbar-track {
 
 /* [Layout] - Ui Form */
 .ui_form {
-    padding:15px;
+    padding:15px 15px 70px;
 }
 
 /* [Layout] - Location */
@@ -406,8 +406,8 @@ body::-webkit-scrollbar-track {
 .btn_top {
     display:none;
     position:fixed;
-    right:50px;
-    bottom:50px;
+    right:15px;
+    bottom:15px;
 }
 .btn_top a {
     display:block;

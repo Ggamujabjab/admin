@@ -101,6 +101,26 @@
     /*border:1px solid rgba(0, 0, 255, 0.3);*/
     background:#333;
 }
+/* [Ui] - 샘플버튼 소스 */
+.sample_button {
+    display:flex;
+}
+.sample_button a {
+    display:block;
+    margin-left:-1px;
+    padding:10px 20px;
+    font-weight:bold;
+    color:#666;
+    text-decoration:none;
+    border:1px solid #666;
+    background:#fff;
+}
+.sample_button a:first-child {
+    margin-left:0;
+}
+.sample_type_title {
+    margin-bottom:5px;
+}
 
 /* [UI] - 회원가입 */
 .join_form {
