@@ -230,6 +230,16 @@
                         </a>
                     </li>
                 </ul>
+
+                <!-- 보호모드 -->
+                <div class="protectmode">
+                    <a id="js_protectMode" href="#">
+                        <div class="text">
+                            <span>다크 모드로 보기</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- //보호모드 -->
             </div>
             <!-- //[Layout] - Menu -->
         </div>
@@ -262,7 +272,12 @@
                 <div class="user_controll">
                     <a href="#" class="login">로그인</a>
                     <div class="user_info">
-                        <button type="button">Admin</button>
+                        <button type="button">
+                            <span class="icon">
+                                <span></span>
+                            </span>
+                            Admin
+                        </button>
                         <ul class="list">
                             <li><a href="#">회원정보관리</a></li>
                             <li><a href="#">로그아웃</a></li>
@@ -277,7 +292,7 @@
             <div class="ui_form">
                 <!-- [Layout] - Location -->
                 <div class="location">
-                    <span class="icon"><img src="../../image/layout/icon_home.png" alt="home"></span>
+                    <span class="icon"></span>
                     <span class="depth">UI COMPONENT</span>
                     <span class="depth">BUTTON</span>
                     <strong>BUTTON LINK RECTANGLE</strong>
@@ -520,6 +535,15 @@ $("#js_quickMenu_close").quickMenu();
 - active : 1 or Number ----- 1 ~ @ 입력가능하며 최대는 메뉴의 총갯수까지 적용(그 수를 넘으면 첫번째 메뉴가 활성화됨)
 */
 $("#js_menuForm").snbMenu();
+
+/* 다크모드 클래스 적용
+- btnNode : 클릭 버튼 아이디 또는 클래스
+- target : 클래스가 들어갈 노드 아이디 또는 클래스
+*/
+protectModeClass({
+    btnNode : "#js_protectMode",
+    target : ".wrap"
+});
 
 // Source Toggle
 sourceToggle({ active : 1 });

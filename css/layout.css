@@ -214,6 +214,71 @@ body::-webkit-scrollbar-track {
 .menu_form .menu li.on a .icon {
     transform:rotate(-90deg);
 }
+/* [Layout] - Snb > 보호모드 */
+.protectmode {
+    position:absolute;
+    left:0;
+    bottom:30px;
+    width:100%;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+.protectmode a {
+    display:block;
+    overflow:hidden;
+    position:relative;
+    height:43px;
+    padding:10px;
+    text-align:center;
+    border:1px solid #eee;
+    border-radius:22px;
+    text-decoration:none;
+    background:#272634;
+    transition:all 0.4s;
+    box-sizing:border-box;
+}
+.protectmode a .text span {
+    display:block;
+    position:relative;
+    font-weight:bold;
+    font-size:13px;
+    color:#fff;
+    z-index:2;
+}
+.protectmode a span.first {}
+.protectmode a span.last {
+    margin-top:15px;
+}
+.protectmode a:before,
+.protectmode a:after {
+    content:"";
+    position:absolute;
+    top:0;
+    width:150px;
+    height:43px;
+    z-index:1;
+}
+.protectmode a:before {
+    left:-158px;
+    background:#050506;
+    transform:skewX(-40deg);
+    transition:all 0.4s;
+}
+.protectmode a:after {
+    right:-158px;
+    background:#050506;
+    transform:skewX(-40deg);
+    transition:all 0.4s;
+}
+.protectmode a:hover {
+    border-color:#050506;
+}
+.protectmode a:hover:before {
+    left:-8px;
+}
+.protectmode a:hover:after {
+    right:-8px;
+}
 
 /* [Layout] - Quick Menu */
 .quick_button {
@@ -309,16 +374,40 @@ body::-webkit-scrollbar-track {
     border:none;
     background:transparent;
 }
-.content .global_form .user_controll .user_info button:before {
-    content:"";
+.content .global_form .user_controll .user_info button .icon {
     display:inline-block;
     width:29px;
     height:29px;
     margin-right:10px;
     border:1px solid #666;
     border-radius:50%;
-    background:url("../image/layout/icon_user.png") 7px center no-repeat;
-    background-size:50%;
+}
+.content .global_form .user_controll .user_info button .icon span {
+    display:inline-block;
+    overflow:hidden;
+    position:relative;
+    width:15px;
+    height:16px;
+    margin-top:6px;
+}
+.content .global_form .user_controll .user_info button .icon span:before,
+.content .global_form .user_controll .user_info button .icon span:after {
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:#424242;
+}
+.content .global_form .user_controll .user_info button .icon span:before {
+    left:3px;
+    top:0;
+    width:8px;
+    height:8px;
+}
+.content .global_form .user_controll .user_info button .icon span:after {
+    left:-2px;
+    top:9px;
+    width:19px;
+    height:19px;
 }
 .content .global_form .user_controll .user_info button:after {
     content:"";
@@ -376,10 +465,12 @@ body::-webkit-scrollbar-track {
 .location {
     margin:5px 0 25px;
 }
-.location .icon {}
-.location .icon img {
+.location .icon {
+    display:inline-block;
+    width:16px;
+    height:16px;
     vertical-align:middle;
-    margin-top:-1px;
+    background:url("../image/layout/icon_home.png") 0 0 no-repeat;
 }
 .location .depth,
 .location strong {
@@ -435,3 +526,79 @@ body::-webkit-scrollbar-track {
 .btn_top a:after {
     top:30px;
 }
+
+/* [Layout] - 보호모드 > 컨텐츠 */
+.darkMode .snb {
+    background:#292a2d;
+}
+.darkMode .snb .logo {
+    background:#121214;
+}
+.darkMode .snb .logo .button {
+    background:#121214;
+}
+.darkMode .content {
+    background:#1e1f21;
+}
+.darkMode .content .global_form {
+    background:#121214;
+    box-shadow:0px 1px 5px #000;
+}
+/* [Layout] - 보호모드 > 상단 */
+.darkMode .content .global_form .user_controll .login,
+.darkMode .content .global_form .user_controll .user_info button {
+    color:#fff;
+}
+.darkMode .content .global_form .user_controll .user_info button .icon {
+    border-color:#fff;
+}
+.darkMode .content .global_form .user_controll .user_info button .icon span:before,
+.darkMode .content .global_form .user_controll .user_info button .icon span:after {
+    background:#fff;
+}
+.darkMode .content .global_form .user_controll .user_info button:after {
+    border-right-color:#fff;
+    border-bottom-color:#fff;
+}
+/* [Layout] - 보호모드 > 경로 */
+.darkMode .location {}
+.darkMode .location .icon {
+    background-image:url("../image/layout/icon_home_dark.png");
+}
+.darkMode .location .depth,
+.darkMode .location strong {
+    color:#eee;
+}
+.darkMode .location .depth:before,
+.darkMode .location strong:before {
+    color:#fff;
+}
+
+/* [Layout] - 보호모드 > 카테고리영역 */
+.darkMode .category_form {
+    border-color:#444;
+}
+.darkMode .category_form .ctg_header,
+.darkMode .category_form .ctg_content {
+    background:#1e1f21;
+}
+.darkMode .category_form .ctg_header {
+    border-color:#444;
+}
+.darkMode .category_form .ctg_header h4,
+.darkMode .category_title {
+    color:#bbb;
+}
+.darkMode .category_title {
+    border-color:#444;
+}
+
+/* [Layout] - 보호모드 > 소스영역 */
+.darkMode .source .btn_close a .icon:before,
+.darkMode .source .btn_close a .icon:after {
+    background:#eee;
+}
+.darkMode .protectmode a {
+    background:#202124;
+}
+

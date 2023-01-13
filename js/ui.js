@@ -69,6 +69,28 @@ function sourceToggle(m){
 	sourceClose.eq(m.active - 1).trigger("click");
 }
 
+// 보호모드 클래스 추가
+function protectModeClass(m){
+    var protectModeBtn = document.querySelector(m.btnNode)
+    , protectModeSpan = protectModeBtn.querySelector("span")
+    , protectModeTarget = document.querySelector(m.target);
+
+    // 버튼 클릭
+    protectModeBtn.addEventListener("click", function(e){
+        // 기본링크 기능삭제
+        e.preventDefault();
+        
+        // 클래스 추가
+        if( protectModeTarget.classList.contains("darkMode") ){
+            protectModeTarget.classList.remove("darkMode");
+            protectModeSpan.innerText = "다크 모드로 보기";
+        } else {
+            protectModeTarget.classList.add("darkMode");
+            protectModeSpan.innerText = "라이트 모드로 보기";
+        }        
+    });
+}
+
 // 테이블 리스트 전체체크박스
 function listCheckAll(m){
     var allCheck = m.all
