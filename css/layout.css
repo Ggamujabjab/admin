@@ -339,10 +339,18 @@ body::-webkit-scrollbar-track {
 }
 .search_form {}
 .search_form .global_search {
-    width:200px;
+    width:300px;
     height:38px;
     padding:0 10px;
     box-sizing:border-box;
+}
+.search_form button {
+    font-weight:bold;
+    font-size:14px;
+    color:#fff;
+    padding:8px 15px;
+    vertical-align:middle;
+    background:#333;
 }
 /* [Layout] - Content > User */
 .content .global_form .user_controll {
@@ -422,8 +430,8 @@ body::-webkit-scrollbar-track {
 .content .global_form .user_controll .user_info .list {
     display:none;
     position:absolute;
-    right:0;
-    top:27px;
+    right:-15px;
+    top:45px;
     width:145px;
     padding:10px 0;
     border:1px solid #ddd;
